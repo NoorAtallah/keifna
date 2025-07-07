@@ -4,6 +4,7 @@ import ProductsSection from "./components/products"
 import TestimonialsSection from "./components/testemonial"
 import ContactSection from "./components/contact"
 import Footer from "./components/layout/footer"
+import KifnaGallerySection from "./components/gallery"
 function App() {
  
 
@@ -14,6 +15,7 @@ function App() {
   <ProductsSection />
   <TestimonialsSection />
   <ContactSection />
+  <KifnaGallerySection />
   <Footer />
     </>
   )
