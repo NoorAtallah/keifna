@@ -1,334 +1,239 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import img from '../../assets/1.png'
-const Navbar = () => {
+const KifnaNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleDropdown = (dropdown) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
-  };
-
-  // Jordanian Shemagh-inspired pattern as inline SVG
-  const jordanianPattern = (
-    <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.08 }}>
-      <defs>
-        <pattern id="jordanian-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-          <rect width="24" height="24" fill="transparent"/>
-          {/* Diagonal grid pattern like shemagh */}
-          <path d="M0,0 L24,24 M0,24 L24,0" stroke="#B91646" strokeWidth="0.8" opacity="0.6"/>
-          <path d="M0,8 L8,0 M16,0 L24,8 M0,16 L8,24 M16,24 L24,16" stroke="#B91646" strokeWidth="0.5" opacity="0.4"/>
-          {/* Cross-hatch pattern */}
-          <path d="M6,0 L6,24 M12,0 L12,24 M18,0 L18,24" stroke="#105652" strokeWidth="0.3" opacity="0.3"/>
-          <path d="M0,6 L24,6 M0,12 L24,12 M0,18 L24,18" stroke="#105652" strokeWidth="0.3" opacity="0.3"/>
-          {/* Small dots at intersections */}
-          <circle cx="6" cy="6" r="0.5" fill="#B91646" opacity="0.4"/>
-          <circle cx="12" cy="12" r="0.5" fill="#B91646" opacity="0.4"/>
-          <circle cx="18" cy="18" r="0.5" fill="#B91646" opacity="0.4"/>
-          <circle cx="6" cy="18" r="0.5" fill="#105652" opacity="0.4"/>
-          <circle cx="18" cy="6" r="0.5" fill="#105652" opacity="0.4"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#jordanian-pattern)"/>
-    </svg>
-  );
+  const products = [
+    "Ready-Made Dough",
+    "Ice Cream", 
+    "Ice Cream Base",
+    "Plain Coffee",
+    "Karak Tea",
+    "Hot Beverages",
+    "Coffee"
+  ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50 relative overflow-hidden" style={{ backgroundColor: '#FBF3E4' }}>
-      {jordanianPattern}
-      
-      {/* Decorative border with Jordanian colors */}
-      <div className="h-1 bg-gradient-to-r" style={{ 
-        background: `linear-gradient(90deg, #105652 0%, #B91646 50%, #105652 100%)` 
-      }}></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <nav className="fixed top-0 w-full z-50 shadow-lg" style={{ backgroundColor: '#27001F' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo with decorative elements */}
-          <div className="flex items-center">
-            <div className="relative">
-              <img
-                src={img}
-                alt="Kaifna Company Logo"
-                className="h-10 w-auto mr-3 relative z-10"
-              />
-              {/* Decorative frame around logo */}
-              <div className="absolute -inset-1 rounded-lg opacity-20" style={{ 
-                background: `linear-gradient(45deg, #105652, #B91646)`,
-                transform: 'scale(1.1)'
-              }}></div>
+          {/* Logo Section */}
+          <div className="flex items-center space-x-3">
+            <img 
+              src={img} 
+              alt="Kifna Company Logo" 
+              className="w-12 h-12 rounded-full object-cover border-2"
+              style={{ borderColor: '#DA2917' }}
+              onError={(e) => {
+                // Fallback if image doesn't load
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div 
+              className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-2"
+              style={{ 
+                backgroundColor: '#FFF6E4', 
+                color: '#27001F',
+                borderColor: '#DA2917',
+                display: 'none'
+              }}
+            >
+              K
             </div>
-            <div className="text-xl font-bold relative" style={{ color: '#105652' }}>
-              Kaifna
-              {/* Small decorative accent */}
-              <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r" style={{ 
-                background: `linear-gradient(90deg, #B91646, transparent)` 
-              }}></div>
+            <div>
+              <h1 className="text-xl font-bold" style={{ color: '#FFF6E4' }}>
+                Kifna Company
+              </h1>
+              <p className="text-xs" style={{ color: '#F2B2A8' }}>
+                Premium Food Manufacturing
+              </p>
             </div>
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-80"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
+            <a 
+              href="#home" 
+              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-20"
+              style={{ 
+                color: '#FFF6E4',
+                ':hover': { backgroundColor: '#DA2917' }
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
               onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
             >
               Home
             </a>
             
+            <a 
+              href="#about" 
+              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              style={{ color: '#FFF6E4' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+            >
+              About Us
+            </a>
+
+            {/* Products Dropdown */}
             <div className="relative">
               <button
-                onClick={() => toggleDropdown('products')}
-                className="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-80"
-                style={{ color: '#105652' }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
+                onClick={() => setIsProductsOpen(!isProductsOpen)}
+                className="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                style={{ color: '#FFF6E4' }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
               >
                 Products
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               
-              {activeDropdown === 'products' && (
-                <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 relative overflow-hidden" style={{ backgroundColor: '#FBF3E4' }}>
-                  {/* Subtle pattern for dropdown */}
-                  <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.05 }}>
-                    <defs>
-                      <pattern id="dropdown-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <rect width="20" height="20" fill="transparent"/>
-                        <circle cx="10" cy="10" r="2" fill="#105652" opacity="0.3"/>
-                        <path d="M5,5 L15,5 L10,15 Z" fill="#B91646" opacity="0.2"/>
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#dropdown-pattern)"/>
-                  </svg>
-                  
-                  <div className="py-1 relative z-10">
-                    <a href="#ready-dough" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Ready-Made Dough</span>
+              {isProductsOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-1 w-48 rounded-md shadow-lg py-1 z-50"
+                  style={{ backgroundColor: '#FFF6E4' }}
+                >
+                  {products.map((product, index) => (
+                    <a
+                      key={index}
+                      href={`#${product.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="block px-4 py-2 text-sm transition-colors duration-200"
+                      style={{ 
+                        color: '#27001F',
+                        ':hover': { backgroundColor: '#F2B2A8' }
+                      }}
+                      onMouseEnter={(e) => e.target.style.backgroundColor = '#F2B2A8'}
+                      onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                    >
+                      {product}
                     </a>
-                    <a href="#ice-cream" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Ice Cream</span>
-                    </a>
-                    <a href="#ice-cream-base" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Ice Cream Base</span>
-                    </a>
-                    <a href="#plain-coffee" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Plain Coffee</span>
-                    </a>
-                    <a href="#karak-tea" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Karak Tea</span>
-                    </a>
-                    <a href="#hot-beverages" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Hot Beverages</span>
-                    </a>
-                    <a href="#coffee" className="block px-4 py-2 text-sm transition-colors duration-200 relative" style={{ color: '#105652' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
-                      <span className="relative z-10">Coffee</span>
-                    </a>
-                  </div>
+                  ))}
                 </div>
               )}
             </div>
 
-            <a
-              href="#about"
-              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-80"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-            >
-              About Us
-            </a>
-            
-            <a
-              href="#quality"
-              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-80"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
+            <a 
+              href="#quality" 
+              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              style={{ color: '#FFF6E4' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
               onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
             >
               Quality Standards
             </a>
-            
-            <a
-              href="#contact"
-              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-80"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-            >
-              Contact
-            </a>
-            
-            <button
-              className="px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:opacity-90 mr-3"
-              style={{ backgroundColor: '#B91646', color: 'white' }}
-            >
-              Get Quote
-            </button>
-            
-            <button
-              className="px-4 py-2 rounded-md text-sm font-medium border-2 transition-colors duration-200 hover:opacity-90"
+
+            <a 
+              href="#contact" 
+              className="px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-2"
               style={{ 
-                borderColor: '#105652', 
-                color: '#105652',
-                backgroundColor: 'transparent'
+                color: '#FFF6E4',
+                borderColor: '#DA2917'
               }}
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#105652';
-                e.target.style.color = 'white';
+                e.target.style.backgroundColor = '#DA2917';
+                e.target.style.color = '#FFF6E4';
               }}
               onMouseLeave={(e) => {
                 e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#105652';
+                e.target.style.color = '#FFF6E4';
               }}
             >
-              Register
-            </button>
+              Contact Us
+            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200"
-              style={{ color: '#105652' }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 rounded-md"
+              style={{ color: '#FFF6E4' }}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <a 
+                href="#home" 
+                className="block px-3 py-2 rounded-md text-base font-medium"
+                style={{ color: '#FFF6E4' }}
+              >
+                Home
+              </a>
+              <a 
+                href="#about" 
+                className="block px-3 py-2 rounded-md text-base font-medium"
+                style={{ color: '#FFF6E4' }}
+              >
+                About Us
+              </a>
+              
+              {/* Mobile Products */}
+              <div>
+                <button
+                  onClick={() => setIsProductsOpen(!isProductsOpen)}
+                  className="flex items-center w-full px-3 py-2 rounded-md text-base font-medium"
+                  style={{ color: '#FFF6E4' }}
+                >
+                  Products
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                {isProductsOpen && (
+                  <div className="ml-4 space-y-1">
+                    {products.map((product, index) => (
+                      <a
+                        key={index}
+                        href={`#${product.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="block px-3 py-2 rounded-md text-sm"
+                        style={{ color: '#F2B2A8' }}
+                      >
+                        {product}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <a 
+                href="#quality" 
+                className="block px-3 py-2 rounded-md text-base font-medium"
+                style={{ color: '#FFF6E4' }}
+              >
+                Quality Standards
+              </a>
+              <a 
+                href="#contact" 
+                className="block px-3 py-2 rounded-md text-base font-medium border-2 mt-2"
+                style={{ 
+                  color: '#FFF6E4',
+                  borderColor: '#DA2917'
+                }}
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden relative overflow-hidden" style={{ backgroundColor: '#FBF3E4' }}>
-          {/* Mobile pattern */}
-          <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.05 }}>
-            <defs>
-              <pattern id="mobile-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                <rect width="30" height="30" fill="transparent"/>
-                <polygon points="15,2 25,12 15,22 5,12" fill="#105652" opacity="0.3"/>
-                <circle cx="15" cy="15" r="2" fill="#B91646" opacity="0.4"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#mobile-pattern)"/>
-          </svg>
-          
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 relative z-10">
-            <a
-              href="#home"
-              className="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 relative"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-            >
-              <span className="relative z-10">Home</span>
-            </a>
-            
-            <div>
-              <button
-                onClick={() => toggleDropdown('mobile-products')}
-                className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-                style={{ color: '#105652' }}
-              >
-                Products
-                <ChevronDown className="h-4 w-4" />
-              </button>
-              
-              {activeDropdown === 'mobile-products' && (
-                <div className="pl-4 space-y-1">
-                  <a href="#ready-dough" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Ready-Made Dough
-                  </a>
-                  <a href="#ice-cream" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Ice Cream
-                  </a>
-                  <a href="#ice-cream-base" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Ice Cream Base
-                  </a>
-                  <a href="#plain-coffee" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Plain Coffee
-                  </a>
-                  <a href="#karak-tea" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Karak Tea
-                  </a>
-                  <a href="#hot-beverages" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Hot Beverages
-                  </a>
-                  <a href="#coffee" className="block px-3 py-2 text-sm transition-colors duration-200" style={{ color: '#105652' }}>
-                    Coffee
-                  </a>
-                </div>
-              )}
-            </div>
-
-            <a
-              href="#about"
-              className="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-            >
-              About Us
-            </a>
-            
-            <a
-              href="#quality"
-              className="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-            >
-              Quality Standards
-            </a>
-            
-            <a
-              href="#contact"
-              className="block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-              style={{ color: '#105652' }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#DFD8CA'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-            >
-              Contact
-            </a>
-            
-            <button
-              className="w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 hover:opacity-90 mb-2"
-              style={{ backgroundColor: '#B91646', color: 'white' }}
-            >
-              Get Quote
-            </button>
-            
-            <button
-              className="w-full text-left px-3 py-2 rounded-md text-base font-medium border-2 transition-colors duration-200 hover:opacity-90"
-              style={{ 
-                borderColor: '#105652', 
-                color: '#105652',
-                backgroundColor: 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#105652';
-                e.target.style.color = 'white';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#105652';
-              }}
-            >
-              Register
-            </button>
-          </div>
+      {/* Company Description Section */}
+      {/* <div className="hidden lg:block py-2 px-4" style={{ backgroundColor: '#F2B2A8' }}>
+        <div className="max-w-7xl mx-auto">
+          <p className="text-sm text-center" style={{ color: '#27001F' }}>
+            <strong>Kifna Company</strong> - A proud Jordanian company manufacturing ready-made dough, ice cream, and hot beverages with international standards and competitive prices. We strive to be one of the strongest Jordanian food manufacturing companies through our methodical approach, always seeking innovation in our manufacturing with quality as our top priority.
+          </p>
         </div>
-      )}
+      </div> */}
     </nav>
   );
 };
 
-export default Navbar;
+export default KifnaNavbar;

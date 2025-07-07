@@ -1,402 +1,347 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Quote, 
-  Star, 
-  MapPin, 
-  Users, 
-  TrendingUp, 
-  Award, 
-  Heart,
-  ChevronLeft,
-  ChevronRight,
-  Building,
-  Target,
-  Zap
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, Target, Users, Award, Globe, Factory, Heart } from 'lucide-react';
 
-const TestimonialsSection = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const testimonials = [
-    {
-      id: 1,
-      name: "Ahmad Al-Mahmoud",
-      position: "Restaurant Owner",
-      company: "Al-Quds Restaurant",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "Kaifna has been our trusted partner for over 3 years. Their ready-made dough consistently delivers perfect results, and their customer service is exceptional. Highly recommended!",
-      location: "Amman, Jordan"
-    },
-    {
-      id: 2,
-      name: "Sarah Mitchell",
-      position: "Cafe Manager",
-      company: "Corner Cafe",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "The quality of Kaifna's ice cream base is outstanding. Our customers always compliment the rich, creamy texture. It's helped us build a loyal customer base.",
-      location: "Irbid, Jordan"
-    },
-    {
-      id: 3,
-      name: "Omar Khatib",
-      position: "Head Chef",
-      company: "Petra Palace Hotel",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "Working with Kaifna has elevated our beverage menu. Their Karak tea blend is authentic and perfectly spiced. Our guests love the traditional taste.",
-      location: "Petra, Jordan"
-    },
-    {
-      id: 4,
-      name: "Layla Hassan",
-      position: "Bakery Owner",
-      company: "Golden Wheat Bakery",
-      image: "/api/placeholder/80/80",
-      rating: 5,
-      text: "Kaifna's products have transformed our bakery operations. The consistency and quality allow us to focus on creativity while maintaining excellent standards.",
-      location: "Zarqa, Jordan"
-    }
-  ];
+const KifnaAboutSection = () => {
+  const [hoveredStat, setHoveredStat] = useState(null);
 
   const stats = [
     {
-      icon: Users,
-      number: "500+",
-      label: "Happy Clients",
-      color: "#B91646"
+      id: 1,
+      number: "2020",
+      label: "Established",
+      icon: Factory,
+      description: "Years of heritage and tradition"
     },
     {
-      icon: Building,
-      number: "1000+",
-      label: "Products Delivered",
-      color: "#105652"
-    },
-    {
+      id: 2,
+      number: "100+",
+      label: "Products",
       icon: Award,
-      number: "15+",
-      label: "Years Experience",
-      color: "#B91646"
+      description: "Premium quality offerings"
     },
     {
-      icon: MapPin,
+      id: 3,
       number: "50+",
-      label: "Cities Served",
-      color: "#105652"
+      label: "Partners",
+      icon: Users,
+      description: "Trusted business relationships"
+    },
+    {
+      id: 4,
+      number: "5★",
+      label: "Quality",
+      icon: Target,
+      description: "International standards"
     }
   ];
 
-  const milestones = [
+  const values = [
     {
-      year: "2008",
-      title: "Company Founded",
-      description: "Started with a vision to bring quality food products to Jordan",
-      icon: Target
+      id: 1,
+      title: "Quality Excellence",
+      description: "We maintain the highest standards in every product we create, ensuring consistent quality that exceeds expectations.",
+      icon: Award,
+      color: "#DA2917"
     },
     {
-      year: "2012",
-      title: "Product Expansion",
-      description: "Added ice cream and beverage lines to our portfolio",
-      icon: TrendingUp
+      id: 2,
+      title: "Jordanian Heritage",
+      description: "Proudly rooted in Jordan, we celebrate our cultural heritage while embracing modern innovation.",
+      icon: Heart,
+      color: "#27001F"
     },
     {
-      year: "2018",
-      title: "Quality Certification",
-      description: "Achieved international quality standards and certifications",
-      icon: Award
+      id: 3,
+      title: "Innovation Focus",
+      description: "Continuously evolving our processes and products to meet the changing needs of our customers.",
+      icon: Target,
+      color: "#F2B2A8"
     },
     {
-      year: "2024",
-      title: "Market Leadership",
-      description: "Became one of Jordan's leading food manufacturing companies",
-      icon: Zap
+      id: 4,
+      title: "Global Standards",
+      description: "Meeting international quality standards while maintaining competitive pricing for our valued customers.",
+      icon: Globe,
+      color: "#DA2917"
     }
   ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  // Jordanian pattern background
-  const jordanianPattern = (
-    <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0, zIndex: 1, opacity: 0.04 }}>
-      <defs>
-        <pattern id="testimonial-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-          <rect width="100" height="100" fill="transparent"/>
-          {/* Traditional shemagh pattern */}
-          <path d="M0,0 L100,100 M0,100 L100,0" stroke="#B91646" strokeWidth="1.5" opacity="0.3"/>
-          <path d="M0,25 L25,0 M75,0 L100,25 M0,75 L25,100 M75,100 L100,75" stroke="#B91646" strokeWidth="1" opacity="0.2"/>
-          <path d="M25,0 L25,100 M50,0 L50,100 M75,0 L75,100" stroke="#105652" strokeWidth="0.6" opacity="0.3"/>
-          <path d="M0,25 L100,25 M0,50 L100,50 M0,75 L100,75" stroke="#105652" strokeWidth="0.6" opacity="0.3"/>
-          {/* Decorative elements */}
-          <polygon points="50,20 70,35 50,50 30,35" fill="#105652" opacity="0.1"/>
-          <circle cx="25" cy="25" r="3" fill="#B91646" opacity="0.2"/>
-          <circle cx="75" cy="75" r="3" fill="#B91646" opacity="0.2"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#testimonial-pattern)"/>
-    </svg>
-  );
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#FBF3E4' }}>
-      {/* Background pattern */}
-      {jordanianPattern}
-      
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r" style={{ 
-        background: `linear-gradient(90deg, #B91646 0%, #105652 50%, #B91646 100%)` 
-      }}></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-20 lg:py-32" style={{ backgroundColor: '#27001F' }}>
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
         
-        {/* Testimonials Section */}
-        <div className="mb-20">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium mb-6" 
-                 style={{ backgroundColor: '#DFD8CA', color: '#105652' }}>
-              <Heart className="w-4 h-4 mr-2" style={{ color: '#B91646' }} />
-              What Our Clients Say
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#105652' }}>
-              Trusted by 
-              <span className="bg-gradient-to-r bg-clip-text text-transparent ml-3" 
-                    style={{ backgroundImage: `linear-gradient(45deg, #B91646, #105652)` }}>
-                Jordanian Businesses
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center mb-20">
+          
+          {/* Left Content */}
+          <div>
+            <div className="mb-8">
+              <span 
+                className="inline-block text-sm font-medium tracking-widest uppercase px-4 py-2 rounded-sm mb-6"
+                style={{ 
+                  color: '#27001F',
+                  backgroundColor: '#F2B2A8',
+                  letterSpacing: '0.2em'
+                }}
+              >
+                About Kifna
               </span>
-            </h2>
-          </div>
-
-          {/* Testimonial Carousel */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border-4 relative overflow-hidden" 
-                 style={{ borderColor: '#DFD8CA' }}>
               
-              {/* Decorative quote pattern */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
-                <svg viewBox="0 0 128 128" className="w-full h-full">
-                  <path d="M0,0 L128,0 L0,128 Z" fill="#B91646"/>
-                  <path d="M0,0 L64,0 L0,64 Z" fill="#105652"/>
-                </svg>
-              </div>
-
-              <div className="relative z-10">
-                {/* Quote Icon */}
-                <Quote className="w-12 h-12 mb-6" style={{ color: '#B91646' }} />
+              <h2 
+                className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight"
+                style={{ 
+                  color: '#FFF6E4',
+                  fontFamily: 'Georgia, serif'
+                }}
+              >
+                Jordanian Excellence in Food Manufacturing
+              </h2>
+              
+              <div className="space-y-6 text-lg leading-relaxed" style={{ color: '#F2B2A8' }}>
+                <p>
+                  Kifna Company stands as one of Jordan's proudly distinguished food manufacturing companies, 
+                  specializing in the production of ready-made dough, premium ice cream, and traditional hot beverages.
+                </p>
                 
-                {/* Testimonial Content */}
-                <div className="min-h-[200px] flex flex-col justify-center">
-                  <p className="text-xl md:text-2xl leading-relaxed mb-8 text-gray-700">
-                    "{testimonials[currentTestimonial].text}"
-                  </p>
-                  
-                  {/* Star Rating */}
-                  <div className="flex items-center mb-6">
-                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" style={{ color: '#B91646' }} />
-                    ))}
-                  </div>
-                  
-                  {/* Client Info */}
-                  <div className="flex items-center">
-                    <img
-                      src={testimonials[currentTestimonial].image}
-                      alt={testimonials[currentTestimonial].name}
-                      className="w-16 h-16 rounded-full object-cover mr-4 border-4"
-                      style={{ borderColor: '#DFD8CA' }}
-                    />
-                    <div>
-                      <h4 className="font-bold text-lg" style={{ color: '#105652' }}>
-                        {testimonials[currentTestimonial].name}
-                      </h4>
-                      <p className="text-gray-600">
-                        {testimonials[currentTestimonial].position} at {testimonials[currentTestimonial].company}
-                      </p>
-                      <div className="flex items-center mt-1">
-                        <MapPin className="w-4 h-4 mr-1" style={{ color: '#B91646' }} />
-                        <span className="text-sm text-gray-500">
-                          {testimonials[currentTestimonial].location}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <p>
+                  Our commitment to excellence drives us to maintain international standards and competitive pricing, 
+                  ensuring that quality remains our foremost priority in every product we create.
+                </p>
+                
+                <p>
+                  Through our methodical approach and continuous pursuit of innovation, we aspire to become 
+                  one of the strongest Jordanian companies in the food manufacturing industry.
+                </p>
               </div>
             </div>
 
-            {/* Navigation Buttons */}
             <button
-              onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-              style={{ backgroundColor: '#B91646' }}
+              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105"
+              style={{ 
+                color: '#27001F',
+                backgroundColor: '#FFF6E4',
+                border: '1px solid #FFF6E4'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = 'transparent';
+                e.target.style.color = '#FFF6E4';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#FFF6E4';
+                e.target.style.color = '#27001F';
+              }}
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <span className="relative z-10 mr-3">Learn Our Story</span>
+              <ArrowUpRight size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
-            
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-              style={{ backgroundColor: '#B91646' }}
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className="w-3 h-3 rounded-full transition-all duration-300"
-                  style={{
-                    backgroundColor: index === currentTestimonial ? '#B91646' : '#DFD8CA'
-                  }}
-                />
-              ))}
-            </div>
           </div>
-        </div>
 
-        {/* Stats Section */}
-        <div className="mb-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <div key={index} className="text-center group">
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-110"
-                       style={{ backgroundColor: '#DFD8CA' }}>
-                    <IconComponent className="w-10 h-10" style={{ color: stat.color }} />
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: stat.color }}>
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 font-medium">
-                    {stat.label}
+          {/* Right Content - Stats */}
+          <div className="grid grid-cols-2 gap-6">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.id}
+                className={`group relative p-8 transition-all duration-500 hover:scale-105 ${
+                  hoveredStat === stat.id ? 'scale-105' : ''
+                }`}
+                style={{
+                  backgroundColor: 'rgba(255, 246, 228, 0.05)',
+                  border: '1px solid rgba(255, 246, 228, 0.1)',
+                  backdropFilter: 'blur(10px)'
+                }}
+                onMouseEnter={() => setHoveredStat(stat.id)}
+                onMouseLeave={() => setHoveredStat(null)}
+              >
+                {/* Icon */}
+                <div className="mb-6">
+                  <div 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      hoveredStat === stat.id ? 'scale-110' : ''
+                    }`}
+                    style={{ 
+                      backgroundColor: hoveredStat === stat.id ? '#DA2917' : 'rgba(218, 41, 23, 0.2)',
+                      border: '1px solid rgba(218, 41, 23, 0.3)'
+                    }}
+                  >
+                    <stat.icon 
+                      size={20} 
+                      style={{ 
+                        color: hoveredStat === stat.id ? '#FFF6E4' : '#DA2917' 
+                      }} 
+                    />
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Number */}
+                <h3 
+                  className="text-3xl lg:text-4xl font-bold mb-2"
+                  style={{ 
+                    color: '#FFF6E4',
+                    fontFamily: 'Georgia, serif'
+                  }}
+                >
+                  {stat.number}
+                </h3>
+
+                {/* Label */}
+                <p 
+                  className="text-lg font-medium mb-2"
+                  style={{ color: '#F2B2A8' }}
+                >
+                  {stat.label}
+                </p>
+
+                {/* Description */}
+                <p 
+                  className="text-sm opacity-80"
+                  style={{ color: '#F2B2A8' }}
+                >
+                  {stat.description}
+                </p>
+
+                {/* Hover Effect */}
+                <div 
+                  className={`absolute bottom-0 left-0 h-1 transition-all duration-300 ${
+                    hoveredStat === stat.id ? 'w-full' : 'w-0'
+                  }`}
+                  style={{ backgroundColor: '#DA2917' }}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Company Story Timeline */}
-        <div className="relative">
+        {/* Values Section */}
+        <div className="border-t pt-20" style={{ borderColor: 'rgba(255, 246, 228, 0.1)' }}>
           <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#105652' }}>
-              Our Journey of Excellence
+            <h3 
+              className="text-3xl md:text-4xl font-light mb-6"
+              style={{ 
+                color: '#FFF6E4',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              Our Core Values
             </h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From humble beginnings to becoming Jordan's trusted food manufacturing partner
+            <p 
+              className="text-lg max-w-2xl mx-auto"
+              style={{ color: '#F2B2A8', opacity: 0.9 }}
+            >
+              The principles that guide everything we do and drive our commitment to excellence.
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline line - Hidden on mobile, shown on desktop */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full rounded-full"
-                 style={{ backgroundColor: '#DFD8CA' }}></div>
-
-            {/* Mobile Timeline line - Left side */}
-            <div className="md:hidden absolute left-6 top-0 w-1 h-full rounded-full"
-                 style={{ backgroundColor: '#DFD8CA' }}></div>
-
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => {
-                const IconComponent = milestone.icon;
-                const isEven = index % 2 === 0;
-                
-                return (
-                  <div key={index} className={`flex items-center ${isEven ? 'md:justify-start' : 'md:justify-end'} justify-start`}>
-                    {/* Mobile Layout */}
-                    <div className="md:hidden w-full">
-                      <div className="flex items-start ml-16">
-                        <div className="bg-white rounded-2xl p-6 shadow-lg border-2 w-full"
-                             style={{ borderColor: '#DFD8CA' }}>
-                          <div className="flex items-center mb-4">
-                            <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4"
-                                 style={{ backgroundColor: index % 2 === 0 ? '#B91646' : '#105652' }}>
-                              <IconComponent className="w-6 h-6 text-white" />
-                            </div>
-                            <div className="text-2xl font-bold" style={{ color: '#105652' }}>
-                              {milestone.year}
-                            </div>
-                          </div>
-                          <h4 className="text-xl font-bold mb-3" style={{ color: '#105652' }}>
-                            {milestone.title}
-                          </h4>
-                          <p className="text-gray-600">
-                            {milestone.description}
-                          </p>
-                        </div>
-                      </div>
-                      {/* Mobile Timeline dot */}
-                      <div className="absolute left-3 w-6 h-6 rounded-full border-4 border-white shadow-lg"
-                           style={{ backgroundColor: index % 2 === 0 ? '#B91646' : '#105652', top: '1.5rem' }}></div>
-                    </div>
-
-                    {/* Desktop Layout */}
-                    <div className={`hidden md:block w-full max-w-md ${isEven ? 'mr-8' : 'ml-8'} ${isEven ? 'text-right' : 'text-left'}`}>
-                      <div className={`bg-white rounded-2xl p-6 shadow-lg border-2 ${isEven ? 'mr-8' : 'ml-8'}`}
-                           style={{ borderColor: '#DFD8CA' }}>
-                        <div className="flex items-center mb-4">
-                          <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4"
-                               style={{ backgroundColor: index % 2 === 0 ? '#B91646' : '#105652' }}>
-                            <IconComponent className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="text-2xl font-bold" style={{ color: '#105652' }}>
-                            {milestone.year}
-                          </div>
-                        </div>
-                        <h4 className="text-xl font-bold mb-3" style={{ color: '#105652' }}>
-                          {milestone.title}
-                        </h4>
-                        <p className="text-gray-600">
-                          {milestone.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Desktop Timeline dot */}
-                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full border-4 border-white shadow-lg"
-                         style={{ backgroundColor: index % 2 === 0 ? '#B91646' : '#105652' }}></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <div
+                key={value.id}
+                className="group text-center p-6 transition-all duration-500 hover:-translate-y-2"
+              >
+                {/* Icon */}
+                <div className="mb-6 flex justify-center">
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                    style={{ 
+                      backgroundColor: 'rgba(255, 246, 228, 0.1)',
+                      border: '2px solid rgba(255, 246, 228, 0.2)'
+                    }}
+                  >
+                    <value.icon 
+                      size={24} 
+                      style={{ color: value.color }} 
+                    />
                   </div>
-                );
-              })}
-            </div>
+                </div>
+
+                {/* Title */}
+                <h4 
+                  className="text-xl font-medium mb-4"
+                  style={{ 
+                    color: '#FFF6E4',
+                    fontFamily: 'Georgia, serif'
+                  }}
+                >
+                  {value.title}
+                </h4>
+
+                {/* Description */}
+                <p 
+                  className="text-sm leading-relaxed"
+                  style={{ color: '#F2B2A8', opacity: 0.8 }}
+                >
+                  {value.description}
+                </p>
+
+                {/* Decorative Element */}
+                <div 
+                  className="w-8 h-0.5 mx-auto mt-6 transition-all duration-300 group-hover:w-12"
+                  style={{ backgroundColor: value.color }}
+                />
+              </div>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-24 h-24 opacity-10">
-        <svg viewBox="0 0 96 96" className="w-full h-full">
-          <circle cx="48" cy="48" r="40" fill="#B91646"/>
-          <polygon points="48,16 72,32 72,64 48,80 24,64 24,32" fill="#105652"/>
-        </svg>
-      </div>
-      
-      <div className="absolute bottom-20 left-10 w-20 h-20 opacity-10">
-        <svg viewBox="0 0 80 80" className="w-full h-full">
-          <polygon points="40,8 64,24 64,56 40,72 16,56 16,24" fill="#105652"/>
-          <circle cx="40" cy="40" r="16" fill="#B91646"/>
-        </svg>
+        {/* Call to Action */}
+        <div 
+          className="text-center mt-20 p-12 lg:p-16"
+          style={{ 
+            backgroundColor: 'rgba(255, 246, 228, 0.05)',
+            border: '1px solid rgba(255, 246, 228, 0.1)'
+          }}
+        >
+          <h3 
+            className="text-3xl md:text-4xl font-light mb-6"
+            style={{ 
+              color: '#FFF6E4',
+              fontFamily: 'Georgia, serif'
+            }}
+          >
+            Ready to Experience Excellence?
+          </h3>
+          
+          <p 
+            className="text-lg mb-8 max-w-2xl mx-auto"
+            style={{ color: '#F2B2A8', opacity: 0.9 }}
+          >
+            Discover how Kifna Company can bring quality and innovation to your business with our premium food products.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105"
+              style={{ 
+                color: '#27001F',
+                backgroundColor: '#FFF6E4',
+                border: '1px solid #FFF6E4'
+              }}
+            >
+              <span className="relative z-10 mr-3">Contact Us</span>
+              <ArrowUpRight size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </button>
+
+            <button
+              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105"
+              style={{ 
+                color: '#FFF6E4',
+                backgroundColor: 'transparent',
+                border: '1px solid rgba(255, 246, 228, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = 'rgba(255, 246, 228, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'transparent';
+              }}
+            >
+              <span className="relative z-10 mr-3">View Products</span>
+              <ArrowUpRight size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default TestimonialsSection;
+export default KifnaAboutSection;
