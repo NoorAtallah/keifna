@@ -141,33 +141,33 @@ const KifnaHeroSlider = () => {
                 />
               </div>
 
-              {/* Content */}
-              <div className="relative z-10 flex items-center h-full">
-                <div className="max-w-7xl mx-auto px-8 lg:px-16">
-                  <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Text Content */}
-                    <div className={`transition-all duration-1000 delay-300 ${
+              {/* Content - Fully Responsive */}
+              <div className="relative z-10 flex items-center h-full px-4 sm:px-6 md:px-8 lg:px-16">
+                <div className="w-full max-w-7xl mx-auto">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    {/* Text Content - Responsive */}
+                    <div className={`text-center lg:text-left transition-all duration-1000 delay-300 ${
                       index === currentSlide 
                         ? 'opacity-100 translate-y-0' 
                         : 'opacity-0 translate-y-8'
                     }`}>
-                      {/* Subtitle */}
-                      <div className="mb-6">
+                      {/* Subtitle - Responsive */}
+                      <div className="mb-4 md:mb-6">
                         <span 
-                          className="inline-block text-sm font-medium tracking-widest uppercase px-4 py-2 rounded-sm"
+                          className="inline-block text-xs sm:text-sm font-medium tracking-wider sm:tracking-widest uppercase px-3 py-2 sm:px-4 sm:py-2 rounded-sm"
                           style={{ 
                             color: '#FFF6E4',
                             backgroundColor: 'rgba(218, 41, 23, 0.9)',
-                            letterSpacing: '0.2em'
+                            letterSpacing: '0.15em'
                           }}
                         >
                           {slide.subtitle}
                         </span>
                       </div>
                       
-                      {/* Title */}
+                      {/* Title - Responsive */}
                       <h1 
-                        className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 md:mb-8 leading-tight"
                         style={{ 
                           color: '#FFF6E4',
                           fontFamily: 'Georgia, serif'
@@ -176,17 +176,17 @@ const KifnaHeroSlider = () => {
                         {slide.title}
                       </h1>
                       
-                      {/* Description */}
+                      {/* Description - Responsive */}
                       <p 
-                        className="text-lg md:text-xl mb-10 leading-relaxed max-w-xl"
+                        className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 md:mb-10 leading-relaxed max-w-2xl lg:max-w-xl mx-auto lg:mx-0"
                         style={{ color: '#F2B2A8' }}
                       >
                         {slide.description}
                       </p>
                       
-                      {/* CTA Button */}
+                      {/* CTA Button - Responsive */}
                       <button
-                        className="group relative inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 overflow-hidden"
+                        className="group relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium transition-all duration-300 overflow-hidden"
                         style={{ 
                           color: '#27001F',
                           backgroundColor: '#FFF6E4',
@@ -209,10 +209,10 @@ const KifnaHeroSlider = () => {
                       </button>
                     </div>
 
-                    {/* Decorative Element with Bubbles */}
+                    {/* Decorative Element - Desktop Only with Bubbles */}
                     <div className="hidden lg:flex justify-center items-center">
                       <div 
-                        className={`relative w-80 h-80 rounded-full transition-all duration-1000 delay-500 ${
+                        className={`relative w-80 h-80 xl:w-96 xl:h-96 rounded-full transition-all duration-1000 delay-500 ${
                           index === currentSlide 
                             ? 'opacity-20 scale-100' 
                             : 'opacity-0 scale-95'
@@ -222,16 +222,17 @@ const KifnaHeroSlider = () => {
                           filter: 'blur(1px)'
                         }}
                       >
-                        {/* Realistic Glass Bubbles */}
+                        {/* Realistic Glass Bubbles - Desktop Only */}
                         {[...Array(6)].map((_, bubbleIndex) => {
-                          const size = Math.random() * 30 + 25;
+                          const sizeVariation = Math.random() * 18 + 25;
+                          
                           return (
                             <div
                               key={bubbleIndex}
                               className="absolute rounded-full"
                               style={{
-                                width: `${size}px`,
-                                height: `${size}px`,
+                                width: `${sizeVariation}px`,
+                                height: `${sizeVariation}px`,
                                 left: `${Math.random() * 60 + 20}%`,
                                 top: `${Math.random() * 60 + 20}%`,
                                 background: `
@@ -258,8 +259,8 @@ const KifnaHeroSlider = () => {
                               <div
                                 className="absolute rounded-full"
                                 style={{
-                                  width: `${size * 0.3}px`,
-                                  height: `${size * 0.3}px`,
+                                  width: `${sizeVariation * 0.3}px`,
+                                  height: `${sizeVariation * 0.3}px`,
                                   top: '15%',
                                   left: '25%',
                                   background: 'rgba(255, 255, 255, 0.6)',
@@ -270,16 +271,17 @@ const KifnaHeroSlider = () => {
                           );
                         })}
                         
-                        {/* Rising Bubbles */}
+                        {/* Rising Bubbles - Desktop Only */}
                         {[...Array(8)].map((_, riseIndex) => {
-                          const size = Math.random() * 20 + 10;
+                          const sizeVariation = Math.random() * 8 + 10;
+                          
                           return (
                             <div
                               key={`rise-${riseIndex}`}
                               className="absolute rounded-full"
                               style={{
-                                width: `${size}px`,
-                                height: `${size}px`,
+                                width: `${sizeVariation}px`,
+                                height: `${sizeVariation}px`,
                                 left: `${Math.random() * 80 + 10}%`,
                                 top: '80%',
                                 background: `
@@ -303,8 +305,8 @@ const KifnaHeroSlider = () => {
                               <div
                                 className="absolute rounded-full"
                                 style={{
-                                  width: `${size * 0.25}px`,
-                                  height: `${size * 0.25}px`,
+                                  width: `${sizeVariation * 0.25}px`,
+                                  height: `${sizeVariation * 0.25}px`,
                                   top: '20%',
                                   left: '30%',
                                   background: 'rgba(255, 255, 255, 0.8)',
@@ -315,16 +317,17 @@ const KifnaHeroSlider = () => {
                           );
                         })}
 
-                        {/* Gentle Floating Bubbles */}
+                        {/* Gentle Floating Bubbles - Desktop Only */}
                         {[...Array(4)].map((_, gentleIndex) => {
-                          const size = Math.random() * 40 + 35;
+                          const sizeVariation = Math.random() * 20 + 35;
+                          
                           return (
                             <div
                               key={`gentle-${gentleIndex}`}
                               className="absolute rounded-full"
                               style={{
-                                width: `${size}px`,
-                                height: `${size}px`,
+                                width: `${sizeVariation}px`,
+                                height: `${sizeVariation}px`,
                                 left: `${Math.random() * 50 + 25}%`,
                                 top: `${Math.random() * 50 + 25}%`,
                                 background: `
@@ -351,8 +354,8 @@ const KifnaHeroSlider = () => {
                               <div
                                 className="absolute rounded-full"
                                 style={{
-                                  width: `${size * 0.4}px`,
-                                  height: `${size * 0.4}px`,
+                                  width: `${sizeVariation * 0.4}px`,
+                                  height: `${sizeVariation * 0.4}px`,
                                   top: '18%',
                                   left: '22%',
                                   background: `
@@ -377,20 +380,20 @@ const KifnaHeroSlider = () => {
           ))}
         </div>
 
-        {/* Elegant Navigation */}
+        {/* Navigation - Fully Responsive */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
-          <div className="max-w-7xl mx-auto px-8 lg:px-16 pb-12">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pb-8 md:pb-12">
             <div className="flex items-center justify-between">
               
-              {/* Slide Counter */}
-              <div className="flex items-center space-x-4">
-                <span className="text-sm font-light" style={{ color: '#F2B2A8' }}>
+              {/* Slide Counter - Responsive */}
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <span className="text-xs sm:text-sm font-light" style={{ color: '#F2B2A8' }}>
                   {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
                 </span>
               </div>
 
-              {/* Slide Indicators */}
-              <div className="flex items-center space-x-3">
+              {/* Slide Indicators - Responsive */}
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 {slides.map((_, index) => (
                   <button
                     key={index}
@@ -399,7 +402,9 @@ const KifnaHeroSlider = () => {
                   >
                     <div
                       className={`h-0.5 transition-all duration-500 ${
-                        index === currentSlide ? 'w-12' : 'w-6 hover:w-8'
+                        index === currentSlide 
+                          ? 'w-8 sm:w-12' 
+                          : 'w-4 sm:w-6 hover:w-6 sm:hover:w-8'
                       }`}
                       style={{ 
                         backgroundColor: index === currentSlide ? '#DA2917' : '#FFF6E4',
@@ -410,37 +415,40 @@ const KifnaHeroSlider = () => {
                 ))}
               </div>
 
-              {/* Navigation Controls */}
-              <div className="flex items-center space-x-4">
+              {/* Navigation Controls - Responsive */}
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <button
                   onClick={prevSlide}
-                  className="p-2 transition-all duration-300 hover:scale-110"
+                  className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                   style={{ color: '#FFF6E4' }}
                 >
-                  <ChevronLeft size={20} strokeWidth={1} />
+                  <ChevronLeft size={16} className="sm:w-5 sm:h-5" strokeWidth={1} />
                 </button>
                 
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="p-2 transition-all duration-300 hover:scale-110"
+                  className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                   style={{ color: '#FFF6E4' }}
                 >
-                  {isPlaying ? <Pause size={18} strokeWidth={1} /> : <Play size={18} strokeWidth={1} />}
+                  {isPlaying ? 
+                    <Pause size={14} className="sm:w-4 sm:h-4" strokeWidth={1} /> : 
+                    <Play size={14} className="sm:w-4 sm:h-4" strokeWidth={1} />
+                  }
                 </button>
                 
                 <button
                   onClick={nextSlide}
-                  className="p-2 transition-all duration-300 hover:scale-110"
+                  className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                   style={{ color: '#FFF6E4' }}
                 >
-                  <ChevronRight size={20} strokeWidth={1} />
+                  <ChevronRight size={16} className="sm:w-5 sm:h-5" strokeWidth={1} />
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Progress Bar */}
+        {/* Progress Bar - Responsive */}
         <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ backgroundColor: 'rgba(255, 246, 228, 0.1)' }}>
           <div 
             className="h-full transition-all duration-300"
@@ -451,8 +459,8 @@ const KifnaHeroSlider = () => {
           />
         </div>
 
-        {/* Elegant Side Navigation */}
-        <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 hidden lg:flex flex-col space-y-6">
+        {/* Side Navigation - Hidden on Mobile, Responsive on Desktop */}
+        <div className="absolute right-4 sm:right-6 md:right-8 top-1/2 transform -translate-y-1/2 z-20 hidden lg:flex flex-col space-y-4 xl:space-y-6">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -460,7 +468,7 @@ const KifnaHeroSlider = () => {
               className="group relative"
             >
               <div
-                className={`w-0.5 h-8 transition-all duration-300 ${
+                className={`w-0.5 h-6 lg:h-8 transition-all duration-300 ${
                   index === currentSlide ? 'scale-y-125' : 'hover:scale-y-110'
                 }`}
                 style={{ 
@@ -478,11 +486,11 @@ const KifnaHeroSlider = () => {
           ))}
         </div>
 
-        {/* Company Logo/Watermark */}
-        <div className="absolute top-8 left-8 z-20">
-          <div className="flex items-center space-x-3">
+        {/* Company Logo - Responsive */}
+        <div className="absolute top-4 sm:top-6 md:top-8 left-4 sm:left-6 md:left-8 z-20">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <div 
-              className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+              className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold"
               style={{ 
                 backgroundColor: '#FFF6E4', 
                 color: '#27001F'
@@ -490,7 +498,7 @@ const KifnaHeroSlider = () => {
             >
               K
             </div>
-            <span className="text-sm font-light" style={{ color: '#FFF6E4' }}>
+            <span className="text-xs sm:text-sm font-light" style={{ color: '#FFF6E4' }}>
               Kifna Company
             </span>
           </div>
