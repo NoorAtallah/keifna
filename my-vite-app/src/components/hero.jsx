@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, Volume2, VolumeX, ArrowRight } from 'lucide-react';
-import video from '../assets/3.mp4'
+import video from '../assets/3.mp4'; // Adjust the path as necessary
 const KifnaVideoHero = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -74,26 +74,82 @@ const KifnaVideoHero = () => {
     }
   };
 
-  const bubblePositions = [
-    { x: 10, y: 15, size: 120 },   // Ready-Made Dough
-    { x: 85, y: 10, size: 110 },   // Ice Cream
-    { x: 45, y: 5, size: 100 },    // Ice Cream Base
-    { x: 15, y: 80, size: 115 },   // Plain Coffee
-    { x: 80, y: 85, size: 105 },   // Karak Tea
-    { x: 50, y: 75, size: 125 },   // Hot Beverages
-    { x: 90, y: 50, size: 95 },    // Coffee
-    // Empty decorative bubbles
-    { x: 25, y: 40, size: 80, empty: true },
-    { x: 65, y: 25, size: 70, empty: true },
-    { x: 30, y: 60, size: 85, empty: true },
-    { x: 70, y: 60, size: 75, empty: true },
-    { x: 5, y: 50, size: 60, empty: true },
-    { x: 95, y: 25, size: 65, empty: true },
-    { x: 35, y: 5, size: 55, empty: true },
-    { x: 60, y: 45, size: 90, empty: true },
-    { x: 20, y: 95, size: 70, empty: true },
-    { x: 75, y: 5, size: 50, empty: true }
-  ];
+  // Responsive bubble positions and sizes
+  const getBubblePositions = () => {
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth < 1024;
+    
+    if (isMobile) {
+      return [
+        // Category bubbles - mobile layout (vertical stack with fewer bubbles visible)
+        { x: 20, y: 15, size: 80 },   // Ready-Made Dough
+        { x: 75, y: 20, size: 75 },   // Ice Cream
+        { x: 50, y: 35, size: 85 },   // Ice Cream Base
+        { x: 25, y: 55, size: 80 },   // Plain Coffee
+        { x: 70, y: 60, size: 75 },   // Karak Tea
+        { x: 45, y: 75, size: 85 },   // Hot Beverages
+        { x: 80, y: 85, size: 70 },   // Coffee
+        // Empty decorative bubbles - fewer on mobile
+        { x: 10, y: 40, size: 50, empty: true },
+        { x: 85, y: 45, size: 45, empty: true },
+        { x: 30, y: 25, size: 40, empty: true },
+        { x: 60, y: 80, size: 45, empty: true },
+        { x: 15, y: 70, size: 35, empty: true }
+      ];
+    } else if (isTablet) {
+      return [
+        // Category bubbles - tablet layout
+        { x: 15, y: 18, size: 100 },  // Ready-Made Dough
+        { x: 80, y: 15, size: 95 },   // Ice Cream
+        { x: 50, y: 10, size: 90 },   // Ice Cream Base
+        { x: 20, y: 75, size: 100 },  // Plain Coffee
+        { x: 75, y: 80, size: 90 },   // Karak Tea
+        { x: 50, y: 70, size: 105 },  // Hot Beverages
+        { x: 85, y: 50, size: 85 },   // Coffee
+        // Empty decorative bubbles - medium amount
+        { x: 30, y: 40, size: 65, empty: true },
+        { x: 65, y: 30, size: 60, empty: true },
+        { x: 35, y: 55, size: 70, empty: true },
+        { x: 70, y: 55, size: 65, empty: true },
+        { x: 10, y: 50, size: 50, empty: true },
+        { x: 90, y: 30, size: 55, empty: true },
+        { x: 25, y: 90, size: 60, empty: true }
+      ];
+    } else {
+      return [
+        // Category bubbles - desktop layout (original)
+        { x: 10, y: 15, size: 120 },   // Ready-Made Dough
+        { x: 85, y: 10, size: 110 },   // Ice Cream
+        { x: 45, y: 5, size: 100 },    // Ice Cream Base
+        { x: 15, y: 80, size: 115 },   // Plain Coffee
+        { x: 80, y: 85, size: 105 },   // Karak Tea
+        { x: 50, y: 75, size: 125 },   // Hot Beverages
+        { x: 90, y: 50, size: 95 },    // Coffee
+        // Empty decorative bubbles - full amount
+        { x: 25, y: 40, size: 80, empty: true },
+        { x: 65, y: 25, size: 70, empty: true },
+        { x: 30, y: 60, size: 85, empty: true },
+        { x: 70, y: 60, size: 75, empty: true },
+        { x: 5, y: 50, size: 60, empty: true },
+        { x: 95, y: 25, size: 65, empty: true },
+        { x: 35, y: 5, size: 55, empty: true },
+        { x: 60, y: 45, size: 90, empty: true },
+        { x: 20, y: 95, size: 70, empty: true },
+        { x: 75, y: 5, size: 50, empty: true }
+      ];
+    }
+  };
+
+  const [bubblePositions, setBubblePositions] = useState(getBubblePositions());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setBubblePositions(getBubblePositions());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="mt-12 relative w-full h-screen overflow-hidden" style={{ backgroundColor: '#27001F' }}>
@@ -143,16 +199,16 @@ const KifnaVideoHero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 md:px-8 lg:px-16">
-        <div className="text-center max-w-7xl mx-auto">
-          {/* Header */}
+        <div className="text-center max-w-7xl mx-auto w-full">
+          {/* Header - Responsive */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-16"
+            className="mb-8 sm:mb-12 md:mb-16"
           >
             <motion.span 
-              className="inline-block text-sm md:text-base font-medium tracking-widest uppercase px-6 py-3 rounded-sm mb-8"
+              className="inline-block text-xs sm:text-sm md:text-base font-medium tracking-widest uppercase px-4 sm:px-6 py-2 sm:py-3 rounded-sm mb-4 sm:mb-6 md:mb-8"
               style={{ 
                 color: '#FFF6E4',
                 backgroundColor: '#DA2917',
@@ -164,7 +220,7 @@ const KifnaVideoHero = () => {
             </motion.span>
             
             <motion.h1 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-8 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light mb-4 sm:mb-6 md:mb-8 leading-tight"
               style={{ 
                 color: '#FFF6E4',
                 fontFamily: 'Georgia, serif'
@@ -177,7 +233,7 @@ const KifnaVideoHero = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+              className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-0"
               style={{ color: '#F2B2A8' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -187,15 +243,15 @@ const KifnaVideoHero = () => {
             </motion.p>
           </motion.div>
 
-          {/* Category Bubbles */}
-          <div className="relative w-full max-w-6xl mx-auto h-96 md:h-[500px]">
+          {/* Category Bubbles - Responsive */}
+          <div className="relative w-full max-w-6xl mx-auto h-64 sm:h-80 md:h-96 lg:h-[500px]">
             {bubblePositions.map((position, index) => {
               const category = categories[index];
               const isEmpty = position.empty;
               
               return (
                 <motion.div
-                  key={isEmpty ? `empty-${index}` : category.id}
+                  key={isEmpty ? `empty-${index}` : category?.id}
                   className="absolute cursor-pointer group"
                   style={{
                     left: `${position.x}%`,
@@ -216,7 +272,7 @@ const KifnaVideoHero = () => {
                     scale: isEmpty ? 1.02 : 1.08,
                     transition: { duration: 0.2 }
                   }}
-                  onHoverStart={() => !isEmpty && setHoveredBubble(category.id)}
+                  onHoverStart={() => !isEmpty && category && setHoveredBubble(category.id)}
                   onHoverEnd={() => setHoveredBubble(null)}
                 >
                   {/* Bubble Container */}
@@ -306,17 +362,15 @@ const KifnaVideoHero = () => {
                     )}
                     
                     {/* Content - Only for category bubbles */}
-                    {!isEmpty && (
-                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-4 relative">
-                        {/* Category Name */}
+                    {!isEmpty && category && (
+                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 relative">
+                        {/* Category Name - Responsive text */}
                         <h3 
-                          className="text-sm md:text-base font-semibold text-center leading-tight mb-2"
+                          className="text-xs sm:text-sm md:text-base font-semibold text-center leading-tight mb-1 sm:mb-2"
                           style={{ color: '#27001F' }}
                         >
                           {category.name}
                         </h3>
-                        
-                     
                         
                         {/* Hover Overlay */}
                         <AnimatePresence>
@@ -338,8 +392,8 @@ const KifnaVideoHero = () => {
                                 className="text-center"
                                 style={{ color: '#FFF6E4' }}
                               >
-                                <ArrowRight className="w-8 h-8 mx-auto mb-2" />
-                                <span className="text-sm font-medium">Explore</span>
+                                <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 mx-auto mb-1 sm:mb-2" />
+                                <span className="text-xs sm:text-sm font-medium">Explore</span>
                               </motion.div>
                             </motion.div>
                           )}
@@ -352,15 +406,15 @@ const KifnaVideoHero = () => {
             })}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Responsive */}
           <motion.div 
-            className="mt-16"
+            className="mt-8 sm:mt-12 md:mt-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             <motion.button
-              className="group relative inline-flex items-center px-8 py-4 text-lg font-medium rounded-sm overflow-hidden"
+              className="group relative inline-flex items-center px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-medium rounded-sm overflow-hidden"
               style={{ 
                 color: '#27001F',
                 backgroundColor: '#FFF6E4',
@@ -380,7 +434,7 @@ const KifnaVideoHero = () => {
               }}
             >
               <span className="relative z-10 mr-2">Explore Our Products</span>
-              <ArrowRight className="w-5 h-5 relative z-10" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
               
               <motion.div 
                 className="absolute inset-0"
@@ -394,16 +448,16 @@ const KifnaVideoHero = () => {
         </div>
       </div>
 
-      {/* Video Controls */}
+      {/* Video Controls - Responsive */}
       <motion.div 
-        className="absolute bottom-8 right-8 z-20 flex items-center space-x-4"
+        className="absolute bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 z-20 flex items-center space-x-2 sm:space-x-3 md:space-x-4"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
       >
         <motion.button
           onClick={togglePlay}
-          className="p-3 rounded-full transition-all duration-300"
+          className="p-2 sm:p-3 rounded-full transition-all duration-300"
           style={{ 
             backgroundColor: 'rgba(255, 246, 228, 0.9)',
             color: '#27001F'
@@ -411,12 +465,12 @@ const KifnaVideoHero = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+          {isPlaying ? <Pause size={16} className="sm:w-5 sm:h-5" /> : <Play size={16} className="sm:w-5 sm:h-5" />}
         </motion.button>
         
         <motion.button
           onClick={toggleMute}
-          className="p-3 rounded-full transition-all duration-300"
+          className="p-2 sm:p-3 rounded-full transition-all duration-300"
           style={{ 
             backgroundColor: 'rgba(255, 246, 228, 0.9)',
             color: '#27001F'
@@ -424,12 +478,9 @@ const KifnaVideoHero = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+          {isMuted ? <VolumeX size={16} className="sm:w-5 sm:h-5" /> : <Volume2 size={16} className="sm:w-5 sm:h-5" />}
         </motion.button>
       </motion.div>
-
-      {/* Company Logo */}
-   
     </div>
   );
 };
