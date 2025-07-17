@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
 
 const KifnaContactSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -9,21 +9,23 @@ const KifnaContactSection = () => {
       id: 1,
       icon: Phone,
       title: "Call Us",
-      primary: "+962 6 123 4567",
-      secondary: "+962 7 890 1234",
-      description: "Monday - Friday, 8AM - 6PM",
+      primary: "+962799500148",
+      secondary: "+962799500148",
+      description: "Saterday - Thursday, 8AM - 6PM",
       action: "Call Now",
-      color: "#DA2917"
+      color: "#DA2917",
+      link: "tel:962799500148"
     },
     {
       id: 2,
       icon: Mail,
       title: "Email Us",
-      primary: "info@kifna.com",
-      secondary: "sales@kifna.com",
+      primary: "info@keifna.com",
+      secondary: "info@keifna.com",
       description: "We'll respond within 24 hours",
       action: "Send Email",
-      color: "#F2B2A8"
+      color: "#F2B2A8",
+      link: "mailto:info@kifna.com"
     },
     {
       id: 3,
@@ -33,17 +35,30 @@ const KifnaContactSection = () => {
       secondary: "Zarqa, Jordan",
       description: "Factory & Office Location",
       action: "Get Directions",
-      color: "#DA2917"
+      color: "#DA2917",
+      link: "https://maps.google.com"
     },
     {
       id: 4,
-      icon: MessageCircle,
-      title: "WhatsApp",
-      primary: "+962 7 999 8888",
-      secondary: "Business inquiries",
-      description: "Quick responses available",
-      action: "Chat Now",
-      color: "#F2B2A8"
+      icon: Instagram,
+      title: "Instagram",
+      primary: "@kifnacompany",
+      secondary: "Follow our journey",
+      description: "Daily updates & behind the scenes",
+      action: "Follow Us",
+      color: "#F2B2A8",
+      link: "https://www.instagram.com/keifna.coffee?igsh=MXFnNWo5eHRwbjh6cQ=="
+    },
+    {
+      id: 5,
+      icon: Facebook,
+      title: "Facebook",
+      primary: "Kifna Company",
+      secondary: "Join our community",
+      description: "News, updates & customer stories",
+      action: "Like Page",
+      color: "#DA2917",
+      link: "https://www.facebook.com/share/1Aw5hFst8a/"
     }
   ];
 
@@ -85,17 +100,21 @@ const KifnaContactSection = () => {
         </div>
 
         {/* Contact Methods Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-20">
           {contactMethods.map((method) => (
-            <div
+            <a
               key={method.id}
-              className={`group relative p-8 transition-all duration-500 hover:-translate-y-2 ${
+              href={method.link}
+              target={method.link.startsWith('http') ? '_blank' : '_self'}
+              rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className={`group relative p-8 transition-all duration-500 hover:-translate-y-2 block ${
                 hoveredCard === method.id ? 'scale-105' : ''
               }`}
               style={{
                 backgroundColor: '#FFF6E4',
                 border: '1px solid rgba(39, 0, 31, 0.1)',
-                boxShadow: hoveredCard === method.id ? '0 20px 40px rgba(39, 0, 31, 0.1)' : '0 5px 15px rgba(39, 0, 31, 0.05)'
+                boxShadow: hoveredCard === method.id ? '0 20px 40px rgba(39, 0, 31, 0.1)' : '0 5px 15px rgba(39, 0, 31, 0.05)',
+                textDecoration: 'none'
               }}
               onMouseEnter={() => setHoveredCard(method.id)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -156,13 +175,13 @@ const KifnaContactSection = () => {
               </div>
 
               {/* Action Button */}
-              <button
+              <div
                 className="group/btn flex items-center space-x-2 text-sm font-medium transition-all duration-300"
                 style={{ color: method.color }}
               >
                 <span>{method.action}</span>
                 <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-              </button>
+              </div>
 
               {/* Hover Effect Line */}
               <div 
@@ -171,7 +190,7 @@ const KifnaContactSection = () => {
                 }`}
                 style={{ backgroundColor: method.color }}
               />
-            </div>
+            </a>
           ))}
         </div>
 
@@ -199,7 +218,7 @@ const KifnaContactSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <p className="font-medium mb-2" style={{ color: '#27001F' }}>
-                Monday - Friday
+                Sunday - Thursday
               </p>
               <p className="text-lg" style={{ color: '#DA2917' }}>
                 8:00 AM - 6:00 PM
@@ -217,7 +236,7 @@ const KifnaContactSection = () => {
             
             <div className="text-center">
               <p className="font-medium mb-2" style={{ color: '#27001F' }}>
-                Sunday
+                Friday
               </p>
               <p className="text-lg opacity-60" style={{ color: '#27001F' }}>
                 Closed
@@ -230,7 +249,7 @@ const KifnaContactSection = () => {
               className="text-sm"
               style={{ color: '#27001F', opacity: 0.7 }}
             >
-              For urgent inquiries outside business hours, please use WhatsApp or email
+              For urgent inquiries outside business hours, please use email
             </p>
           </div>
         </div>
@@ -254,25 +273,7 @@ const KifnaContactSection = () => {
             Join the growing family of businesses that trust Kifna Company for their premium food manufacturing needs.
           </p>
 
-          <button
-            className="group inline-flex items-center px-10 py-5 text-lg font-medium transition-all duration-300 hover:scale-105"
-            style={{ 
-              color: '#FFF6E4',
-              backgroundColor: '#27001F',
-              border: '1px solid #27001F'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-              e.target.style.color = '#27001F';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#27001F';
-              e.target.style.color = '#FFF6E4';
-            }}
-          >
-            <span className="relative z-10 mr-3">Start Your Journey</span>
-            <ArrowUpRight size={20} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
+ 
         </div>
       </div>
     </section>

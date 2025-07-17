@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
+import img from '../assets/3.jpeg'; 
+import img2 from '../assets/7.jpeg';
+import img3 from '../assets/6.jpeg';
+import img4 from '../assets/4.jpeg';
+import img5 from '../assets/5.jpeg';
 
 const KifnaHeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,7 +13,7 @@ const KifnaHeroSlider = () => {
   const slides = [
     {
       id: 1,
-      image: "https://www.shutterstock.com/image-photo/belgian-waffles-sprinkled-powdered-sugar-600nw-2480562673.jpg",
+      image: img,
       title: "Premium Ready-Made Dough",
       subtitle: "Crafted with Excellence",
       description: "Experience the finest ready-made dough crafted with international standards and competitive prices.",
@@ -16,7 +21,7 @@ const KifnaHeroSlider = () => {
     },
     {
       id: 2,
-      image: "https://cdn.prod.website-files.com/642f26ea0d34e0594a51fef5/642f26ea0d34e06e2e520136_63e14efcd861144083954869_courtney-cook-QYsRxRPygwU-unsplash.jpg",
+      image: img2,
       title: "Artisan Ice Cream",
       subtitle: "Pure Indulgence",
       description: "Indulge in our premium ice cream made with the finest ingredients and traditional recipes.",
@@ -24,7 +29,7 @@ const KifnaHeroSlider = () => {
     },
     {
       id: 3,
-      image: "https://gelq-1fb55.kxcdn.com/10765-large_default/leagel-easy-banana-milk-12-kg-ready-ice-cream.jpg",
+      image: img3,
       title: "Professional Ice Cream Base",
       subtitle: "Commercial Excellence",
       description: "High-quality ice cream base designed for businesses seeking consistency and excellence.",
@@ -32,7 +37,7 @@ const KifnaHeroSlider = () => {
     },
     {
       id: 4,
-      image: "https://kunjaninaples.com/cdn/shop/collections/specialty_small_batch_coffee-Kunjani_roasters.jpg",
+      image: img4,
       title: "Premium Coffee Collection",
       subtitle: "Rich & Aromatic",
       description: "Discover our exquisite range of premium coffee and traditional hot beverages.",
@@ -40,7 +45,7 @@ const KifnaHeroSlider = () => {
     },
     {
       id: 5,
-      image: "https://keifna.com/wp-content/uploads/2023/09/93426596_1054839424894694_2693954542051000320_n-600x600.jpg",
+      image: img5,
       title: "Kifna Company",
       subtitle: "Jordanian Heritage",
       description: "Leading food manufacturing with innovation, quality, and international standards.",
@@ -97,7 +102,7 @@ const KifnaHeroSlider = () => {
                   index === currentSlide ? 'scale-110' : 'scale-100'
                 }`}
                 style={{
-                  filter: 'brightness(0.4) contrast(1.1)',
+                  filter: 'brightness(0.65) contrast(1.05)',
                 }}
                 onError={(e) => {
                   e.target.style.display = 'none';
@@ -105,21 +110,21 @@ const KifnaHeroSlider = () => {
                 }}
               />
               
-              {/* Elegant Gradient Overlay */}
-              <div 
+              {/* Softer Gradient Overlay */}
+              {/* <div 
                 className="absolute inset-0"
                 style={{ 
                   background: `
-                    linear-gradient(135deg, rgba(39, 0, 31, 0.9) 0%, rgba(39, 0, 31, 0.6) 50%, rgba(218, 41, 23, 0.7) 100%)
+                    linear-gradient(135deg, rgba(39, 0, 31, 0.6) 0%, rgba(39, 0, 31, 0.3) 50%, rgba(218, 41, 23, 0.4) 100%)
                   `
                 }}
-              />
+              /> */}
             </div>
 
             {/* Content */}
             <div className="relative z-10 flex items-center h-full">
-              <div className="max-w-7xl mx-auto px-8 lg:px-16">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-16">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                   {/* Text Content */}
                   <div className={`transition-all duration-1000 delay-300 ${
                     index === currentSlide 
@@ -127,9 +132,9 @@ const KifnaHeroSlider = () => {
                       : 'opacity-0 translate-y-8'
                   }`}>
                     {/* Subtitle */}
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <span 
-                        className="inline-block text-sm font-medium tracking-widest uppercase px-4 py-2 rounded-sm"
+                        className="inline-block text-xs sm:text-sm font-medium tracking-widest uppercase px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm"
                         style={{ 
                           color: '#FFF6E4',
                           backgroundColor: 'rgba(218, 41, 23, 0.9)',
@@ -142,7 +147,7 @@ const KifnaHeroSlider = () => {
                     
                     {/* Title */}
                     <h1 
-                      className="text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight"
+                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 sm:mb-8 leading-tight"
                       style={{ 
                         color: '#FFF6E4',
                         fontFamily: 'Georgia, serif'
@@ -153,7 +158,7 @@ const KifnaHeroSlider = () => {
                     
                     {/* Description */}
                     <p 
-                      className="text-lg md:text-xl mb-10 leading-relaxed max-w-xl"
+                      className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed max-w-xl"
                       style={{ color: '#F2B2A8' }}
                     >
                       {slide.description}
@@ -161,7 +166,7 @@ const KifnaHeroSlider = () => {
                     
                     {/* CTA Button */}
                     <button
-                      className="group relative inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 overflow-hidden"
+                      className="group relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium transition-all duration-300 overflow-hidden"
                       style={{ 
                         color: '#27001F',
                         backgroundColor: '#FFF6E4',
@@ -187,7 +192,7 @@ const KifnaHeroSlider = () => {
                   {/* Decorative Element */}
                   <div className="hidden lg:flex justify-center items-center">
                     <div 
-                      className={`w-80 h-80 rounded-full transition-all duration-1000 delay-500 ${
+                      className={`w-64 h-64 xl:w-80 xl:h-80 rounded-full transition-all duration-1000 delay-500 ${
                         index === currentSlide 
                           ? 'opacity-20 scale-100' 
                           : 'opacity-0 scale-95'
@@ -207,18 +212,18 @@ const KifnaHeroSlider = () => {
 
       {/* Elegant Navigation */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 pb-6 sm:pb-12">
           <div className="flex items-center justify-between">
             
             {/* Slide Counter */}
             <div className="flex items-center space-x-4">
-              <span className="text-sm font-light" style={{ color: '#F2B2A8' }}>
+              <span className="text-xs sm:text-sm font-light" style={{ color: '#F2B2A8' }}>
                 {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
               </span>
             </div>
 
             {/* Slide Indicators */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               {slides.map((_, index) => (
                 <button
                   key={index}
@@ -227,7 +232,7 @@ const KifnaHeroSlider = () => {
                 >
                   <div
                     className={`h-0.5 transition-all duration-500 ${
-                      index === currentSlide ? 'w-12' : 'w-6 hover:w-8'
+                      index === currentSlide ? 'w-8 sm:w-12' : 'w-4 sm:w-6 hover:w-6 sm:hover:w-8'
                     }`}
                     style={{ 
                       backgroundColor: index === currentSlide ? '#DA2917' : '#FFF6E4',
@@ -239,29 +244,29 @@ const KifnaHeroSlider = () => {
             </div>
 
             {/* Navigation Controls */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <button
                 onClick={prevSlide}
-                className="p-2 transition-all duration-300 hover:scale-110"
+                className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                 style={{ color: '#FFF6E4' }}
               >
-                <ChevronLeft size={20} strokeWidth={1} />
+                <ChevronLeft size={18} className="sm:w-5 sm:h-5" strokeWidth={1} />
               </button>
               
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="p-2 transition-all duration-300 hover:scale-110"
+                className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                 style={{ color: '#FFF6E4' }}
               >
-                {isPlaying ? <Pause size={18} strokeWidth={1} /> : <Play size={18} strokeWidth={1} />}
+                {isPlaying ? <Pause size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={1} /> : <Play size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={1} />}
               </button>
               
               <button
                 onClick={nextSlide}
-                className="p-2 transition-all duration-300 hover:scale-110"
+                className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                 style={{ color: '#FFF6E4' }}
               >
-                <ChevronRight size={20} strokeWidth={1} />
+                <ChevronRight size={18} className="sm:w-5 sm:h-5" strokeWidth={1} />
               </button>
             </div>
           </div>
@@ -279,8 +284,8 @@ const KifnaHeroSlider = () => {
         />
       </div>
 
-      {/* Elegant Side Navigation */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 hidden lg:flex flex-col space-y-6">
+      {/* Elegant Side Navigation - Hidden on mobile */}
+      <div className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 z-20 hidden lg:flex flex-col space-y-4 xl:space-y-6">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -288,7 +293,7 @@ const KifnaHeroSlider = () => {
             className="group relative"
           >
             <div
-              className={`w-0.5 h-8 transition-all duration-300 ${
+              className={`w-0.5 h-6 xl:h-8 transition-all duration-300 ${
                 index === currentSlide ? 'scale-y-125' : 'hover:scale-y-110'
               }`}
               style={{ 
@@ -307,10 +312,10 @@ const KifnaHeroSlider = () => {
       </div>
 
       {/* Company Logo/Watermark */}
-      <div className="absolute top-8 left-8 z-20">
-        <div className="flex items-center space-x-3">
+      <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-20">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <div 
-            className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+            className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold"
             style={{ 
               backgroundColor: '#FFF6E4', 
               color: '#27001F'
@@ -318,7 +323,7 @@ const KifnaHeroSlider = () => {
           >
             K
           </div>
-          <span className="text-sm font-light" style={{ color: '#FFF6E4' }}>
+          <span className="text-xs sm:text-sm font-light" style={{ color: '#FFF6E4' }}>
             Kifna Company
           </span>
         </div>

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import img from '../../assets/1.png'
+import img from '../../assets/logo.png'
 const KifnaNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   const products = [
-    "Ready-Made Dough",
-    "Ice Cream", 
-    "Ice Cream Base",
-    "Plain Coffee",
+    "Pastery",
     "Karak Tea",
-    "Hot Beverages",
-    "Coffee"
+    "Ice Cream", 
+    "Ice Drinks",
+    "Hot Drinks",
+    "Coffee",
+    "Paste"
   ];
 
   return (
@@ -24,7 +24,7 @@ const KifnaNavbar = () => {
             <img 
               src={img} 
               alt="Kifna Company Logo" 
-              className="w-12 h-12 rounded-full object-cover border-2"
+              className="w-12 h-12 rounded-full object-contain border-2"
               style={{ borderColor: '#DA2917' }}
               onError={(e) => {
                 // Fallback if image doesn't load

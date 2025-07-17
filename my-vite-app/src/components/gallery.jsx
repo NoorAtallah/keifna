@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ExternalLink } from 'lucide-react';
-
+import img from '../assets/7.jpeg'
 const KifnaGallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [hoveredImage, setHoveredImage] = useState(null);
@@ -8,14 +8,14 @@ const KifnaGallerySection = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "https://www.shutterstock.com/image-photo/belgian-waffles-sprinkled-powdered-sugar-600nw-2480562673.jpg",
+      src: "https://www.tasteofhome.com/wp-content/uploads/2018/01/True-Belgian-Waffles_EXPS_FT24_4869_JR_0214_3.jpg",
       title: "Premium Dough Products",
       category: "Ready-Made Dough",
       description: "Artisanal quality dough crafted with traditional methods"
     },
     {
       id: 2,
-      src: "https://cdn.prod.website-files.com/642f26ea0d34e0594a51fef5/642f26ea0d34e06e2e520136_63e14efcd861144083954869_courtney-cook-QYsRxRPygwU-unsplash.jpg",
+      src: img,
       title: "Artisan Ice Cream",
       category: "Ice Cream",
       description: "Creamy perfection made with finest ingredients"
@@ -43,21 +43,21 @@ const KifnaGallerySection = () => {
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+      src: "https://images.ctfassets.net/grb5fvwhwnyo/75FngiKNYXRUUGKLq4AXGO/ba6296b5796bc580aa63f79d94a06efa/card-food-quality-control-procedures.jpg",
       title: "Quality Control",
       category: "Process",
       description: "Rigorous quality testing and standards"
     },
     {
       id: 7,
-      src: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=800&q=80",
+      src: "https://adeptpackaging.com/getmedia/c35faf9f-b16b-4dc1-9a1e-a3c05178bd9a/center-of-excellence.jpeg",
       title: "Packaging Excellence",
       category: "Packaging",
       description: "Premium packaging for product protection"
     },
     {
       id: 8,
-      src: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=800&q=80",
+      src: "https://www.schuitemagroup.com/wp-content/uploads/2022/04/team-excellence-schuitema-group.jpg",
       title: "Team Excellence",
       category: "Team",
       description: "Skilled professionals ensuring quality"
