@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import img from '../../assets/logo.png'
 
 const KifnaNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const products = [
     { name: "Pastry", path: "/products/pastry" },
@@ -22,18 +24,34 @@ const KifnaNavbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <Link to="/" className="flex items-center space-x-3">
-            <div 
-              className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-2"
-              style={{ 
-                backgroundColor: '#FFF6E4', 
-                color: '#27001F',
-                borderColor: '#DA2917'
-              }}
-            >
-              K
-            </div>
+            {/* Logo Image */}
+            {!logoError && (
+              <img 
+                src={img} 
+                alt="Kifna Company Logo" 
+                className="w-12 h-12  object-contain border-2 transition-transform duration-200 hover:scale-105"
+              
+                onError={() => setLogoError(true)}
+              />
+            )}
+            
+            {/* Fallback Logo */}
+            {logoError && (
+              <div 
+                className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-2 transition-transform duration-200 hover:scale-105"
+                style={{ 
+                  backgroundColor: '#FFF6E4', 
+                  color: '#27001F',
+                  borderColor: '#DA2917'
+                }}
+              >
+                K
+              </div>
+            )}
+            
+            {/* Company Name */}
             <div>
-              <h1 className="text-xl font-bold" style={{ color: '#FFF6E4' }}>
+              <h1 className="text-xl font-bold transition-colors duration-200" style={{ color: '#FFF6E4' }}>
                 Kifna Company
               </h1>
               <p className="text-xs" style={{ color: '#F2B2A8' }}>
