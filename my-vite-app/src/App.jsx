@@ -10,6 +10,7 @@ import IceDrinksPage from './pages/iceDrinks'
 import HotDrinksPage from './pages/hotDrinks'
 import CoffeePage from './pages/coffePage'
 import PastePage from './pages/pastePage'
+import ContactPage from './pages/cnotactUs'
 function App() {
   return (
     <Router>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/products/coffee" element={<CoffeePage />} />
             <Route path="/products/paste" element={<PastePage />} />
             {/* Add more routes as needed */}
+            <Route path="/contact" element={<ContactPage />} />
            
           </Routes>
         </main>
