@@ -5,6 +5,11 @@ import img3 from '../assets/9.jpeg'
 import img4 from '../assets/10.jpeg'
 import img5 from '../assets/11.jpeg'
 import img6 from '../assets/3.jpeg'
+import img7 from '../assets/12.jpeg'
+import img8 from '../assets/13.jpeg'
+import img9 from '../assets/14.jpeg'
+import img10 from '../assets/15.jpeg'
+import img11 from '../assets/16.jpeg'
 
 export const productsData = {
   pastry: {
@@ -296,89 +301,324 @@ export const productsData = {
     ]
   },
 
-  iceCream: {
-    id: 'ice-cream',
-    title: "Ice Cream",
-    subtitle: "Luxury Series",
-    description: "Creamy perfection made with the finest ingredients, delivering an unforgettable taste experience.",
-    mainImage: img2,
-    badge: "Premium",
-    color: "#A8C8EC",
-    products: [
-      {
-        id: 'soft-ice-cream-pistachio',
-        name: 'Soft Ice Cream - Pistachio',
-        nameArabic: 'آيس كريم طري - فستق',
-        description: 'Creamy pistachio soft serve ice cream',
-        image: 'https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/09/Pistachio-ice-cream-hero-04.jpg',
-        price: 'JD 3.50',
-        features: ['Natural Pistachio', 'Soft Serve', 'Premium Quality']
-      },
-      {
-        id: 'soft-ice-cream-vanilla',
-        name: 'Soft Ice Cream - Vanilla',
-        nameArabic: 'آيس كريم طري - فانيلا',
-        description: 'Classic vanilla soft serve ice cream',
-        image: 'https://whippeditup.com/wp-content/uploads/2020/06/Coconut-Cashew-Vanilla-Ice-Cream-17.jpg',
-        price: 'JD 3.00',
-        features: ['Classic Vanilla', 'Smooth Texture', 'All-Time Favorite']
-      },
-      {
-        id: 'soft-ice-cream-chocolate',
-        name: 'Soft Ice Cream - Chocolate',
-        nameArabic: 'آيس كريم طري - شوكولاتة',
-        description: 'Rich chocolate soft serve ice cream',
-        image: 'https://feastingonfruit.com/wp-content/uploads/2021/07/Homemade-Vegan-Chocolate-Soft-Serve-10.jpg',
-        price: 'JD 3.25',
-        features: ['Rich Chocolate', 'Soft Serve', 'Indulgent']
-      },
-      {
-        id: 'soft-ice-cream-strawberry',
-        name: 'Soft Ice Cream - Strawberry',
-        nameArabic: 'آيس كريم طري - فراولة',
-        description: 'Fresh strawberry soft serve ice cream',
-        image: 'https://i2.wp.com/lmld.org/wp-content/uploads/2018/07/Strawberry-Ice-Cream-10.jpg',
-        price: 'JD 3.25',
-        features: ['Fresh Strawberry', 'Natural Flavor', 'Refreshing']
-      },
-      {
-        id: 'natural-ice-cream-coconut',
-        name: 'Natural Ice Cream - Coconut',
-        nameArabic: 'آيس كريم طبيعي - جوز الهند',
-        description: 'Natural coconut ice cream',
-        image: 'https://tenina.imgix.net/uploads/recipe-images/Coconut-Cream-Ice-Cream.jpg?w=1200&fit=max&auto=compress',
-        price: 'JD 4.00',
-        features: ['Natural Coconut', 'Tropical Taste', 'Refreshing']
-      },
-      {
-        id: 'ice-cream-bubbles-candy',
-        name: 'Ice Cream - Bubbles Candy',
-        nameArabic: 'آيس كريم - حلوى الفقاعات',
-        description: 'Fun ice cream with bubble candy',
-        image: 'https://icecreamfromscratch.com/wp-content/uploads/2021/12/Bubblegum-Ice-Cream-1.2.jpg',
-        price: 'JD 3.75',
-        features: ['Fun Texture', 'Candy Mix', 'Kid Favorite']
-      },
-      {
-        id: 'sugar-free-ice-cream',
-        name: 'Sugar-Free Ice Cream',
-        nameArabic: 'آيس كريم بدون سكر',
-        description: 'Healthy sugar-free ice cream options',
-        image: 'https://publish.purewow.net/wp-content/uploads/sites/2/2023/03/best-low-sugar-ice-cream_universal.jpg',
-        price: 'JD 4.50',
-        features: ['No Sugar', 'Health Conscious', 'Full Flavor']
-      },
-      {
-        id: 'fat-free-ice-cream',
-        name: 'Fat-Free Ice Cream',
-        nameArabic: 'آيس كريم خالي الدسم',
-        description: 'Low-fat ice cream for health-conscious customers',
-        image: 'https://www.theroastedroot.net/wp-content/uploads/2023/06/dairy-free-vanilla-ice-cream-10.jpg',
-        price: 'JD 4.25',
-        features: ['Fat-Free', 'Healthy Option', 'Light Taste']
-      }
-    ]
-  },
+iceCream: {
+  id: 'ice-cream',
+  title: "Ice Cream",
+  subtitle: "Luxury Series",
+  description: "Creamy perfection made with the finest ingredients, delivering an unforgettable taste experience.",
+  mainImage: img2,
+  badge: "Premium",
+  color: "#A8C8EC",
+  products: [
+    // Existing products
+    {
+      id: 'soft-ice-cream-pistachio',
+      name: 'Soft Ice Cream - Pistachio',
+      nameArabic: 'آيس كريم طري - فستق',
+      description: 'Creamy pistachio soft serve ice cream',
+      image: 'https://www.keep-calm-and-eat-ice-cream.com/wp-content/uploads/2022/09/Pistachio-ice-cream-hero-04.jpg',
+      price: 'JD 3.50',
+      features: ['Natural Pistachio', 'Soft Serve', 'Premium Quality']
+    },
+    {
+      id: 'soft-ice-cream-vanilla',
+      name: 'Soft Ice Cream - Vanilla',
+      nameArabic: 'آيس كريم طري - فانيلا',
+      description: 'Classic vanilla soft serve ice cream',
+      image: 'https://whippeditup.com/wp-content/uploads/2020/06/Coconut-Cashew-Vanilla-Ice-Cream-17.jpg',
+      price: 'JD 3.00',
+      features: ['Classic Vanilla', 'Smooth Texture', 'All-Time Favorite']
+    },
+    {
+      id: 'soft-ice-cream-chocolate',
+      name: 'Soft Ice Cream - Chocolate',
+      nameArabic: 'آيس كريم طري - شوكولاتة',
+      description: 'Rich chocolate soft serve ice cream',
+      image: 'https://feastingonfruit.com/wp-content/uploads/2021/07/Homemade-Vegan-Chocolate-Soft-Serve-10.jpg',
+      price: 'JD 3.25',
+      features: ['Rich Chocolate', 'Soft Serve', 'Indulgent']
+    },
+    {
+      id: 'soft-ice-cream-strawberry',
+      name: 'Soft Ice Cream - Strawberry',
+      nameArabic: 'آيس كريم طري - فراولة',
+      description: 'Fresh strawberry soft serve ice cream',
+      image: 'https://i2.wp.com/lmld.org/wp-content/uploads/2018/07/Strawberry-Ice-Cream-10.jpg',
+      price: 'JD 3.25',
+      features: ['Fresh Strawberry', 'Natural Flavor', 'Refreshing']
+    },
+    {
+      id: 'natural-ice-cream-coconut',
+      name: 'Natural Ice Cream - Coconut',
+      nameArabic: 'آيس كريم طبيعي - جوز الهند',
+      description: 'Natural coconut ice cream',
+      image: 'https://tenina.imgix.net/uploads/recipe-images/Coconut-Cream-Ice-Cream.jpg?w=1200&fit=max&auto=compress',
+      price: 'JD 4.00',
+      features: ['Natural Coconut', 'Tropical Taste', 'Refreshing']
+    },
+    {
+      id: 'ice-cream-bubbles-candy',
+      name: 'Ice Cream - Bubbles Candy',
+      nameArabic: 'آيس كريم - حلوى الفقاعات',
+      description: 'Fun ice cream with bubble candy',
+      image: 'https://icecreamfromscratch.com/wp-content/uploads/2021/12/Bubblegum-Ice-Cream-1.2.jpg',
+      price: 'JD 3.75',
+      features: ['Fun Texture', 'Candy Mix', 'Kid Favorite']
+    },
+    {
+      id: 'sugar-free-ice-cream',
+      name: 'Sugar-Free Ice Cream',
+      nameArabic: 'آيس كريم بدون سكر',
+      description: 'Healthy sugar-free ice cream options',
+      image: 'https://publish.purewow.net/wp-content/uploads/sites/2/2023/03/best-low-sugar-ice-cream_universal.jpg',
+      price: 'JD 4.50',
+      features: ['No Sugar', 'Health Conscious', 'Full Flavor']
+    },
+    {
+      id: 'fat-free-ice-cream',
+      name: 'Fat-Free Ice Cream',
+      nameArabic: 'آيس كريم خالي الدسم',
+      description: 'Low-fat ice cream for health-conscious customers',
+      image: 'https://www.theroastedroot.net/wp-content/uploads/2023/06/dairy-free-vanilla-ice-cream-10.jpg',
+      price: 'JD 4.25',
+      features: ['Fat-Free', 'Healthy Option', 'Light Taste']
+    },
+
+    // NEW MISSING FLAVORS ADDED BELOW
+    {
+      id: 'soft-ice-cream-hazelnut',
+      name: 'Soft Ice Cream - Hazelnut',
+      nameArabic: 'آيس كريم طري - بندق',
+      description: 'Rich hazelnut soft serve ice cream',
+      image: 'https://www.elmundoeats.com/wp-content/uploads/2023/07/Ice-cream-cone-laying-flat-on-a-table.jpg',
+      price: 'JD 3.75',
+      features: ['Rich Hazelnut', 'Nutty Flavor', 'Premium Quality']
+    },
+    {
+      id: 'soft-ice-cream-mango',
+      name: 'Soft Ice Cream - Mango',
+      nameArabic: 'آيس كريم طري - مانجو',
+      description: 'Tropical mango soft serve ice cream',
+      image: 'https://www.pineappleandcoconut.com/wp-content/uploads/2021/06/Mango-Ice-Cream-9.jpg',
+      price: 'JD 3.50',
+      features: ['Tropical Mango', 'Natural Fruit', 'Refreshing']
+    },
+    {
+      id: 'soft-ice-cream-coffee',
+      name: 'Soft Ice Cream - Coffee',
+      nameArabic: 'آيس كريم طري - قهوة',
+      description: 'Rich coffee flavored soft serve ice cream',
+      image: 'https://murphysicecream.ie/cdn/shop/articles/Irish_coffee_cropped_3832x.jpg?v=1638532820',
+      price: 'JD 3.75',
+      features: ['Rich Coffee', 'Energizing', 'Premium Beans']
+    },
+    {
+      id: 'soft-ice-cream-red-velvet',
+      name: 'Soft Ice Cream - Red Velvet',
+      nameArabic: 'آيس كريم طري - ريد فيلفيت',
+      description: 'Luxurious red velvet soft serve ice cream',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR4NQUxEVNz-myRNBaAPQkSY0_tBOI4vZCxQ&s',
+      price: 'JD 4.25',
+      features: ['Red Velvet Flavor', 'Luxurious', 'Special Occasion']
+    },
+  
+    {
+      id: 'soft-ice-cream-peach',
+      name: 'Soft Ice Cream - Peach',
+      nameArabic: 'آيس كريم طري - خوخ',
+      description: 'Sweet peach soft serve ice cream',
+      image: 'https://www.savingdessert.com/wp-content/uploads/2023/08/Peach-Ice-Cream-8.jpg',
+      price: 'JD 3.50',
+      features: ['Sweet Peach', 'Summer Flavor', 'Natural Fruit']
+    },
+    {
+      id: 'ice-cream-arabia',
+      name: 'Ice Cream - Arabia',
+      nameArabic: 'آيس كريم - عربي',
+      description: 'Traditional Arabic flavored ice cream',
+      image: 'https://preview.redd.it/homemade-arabic-ice-cream-roll-topped-with-arabian-cotton-v0-eg9f72jdftkd1.jpeg?width=1080&crop=smart&auto=webp&s=b1496e3c9141af8c041be665fb70508637138af4',
+      price: 'JD 4.00',
+      features: ['Traditional Arabic', 'Cultural Taste', 'Authentic Recipe']
+    },
+    {
+      id: 'ice-cream-yogurt',
+      name: 'Ice Cream - Yogurt',
+      nameArabic: 'آيس كريم - زبادي',
+      description: 'Healthy yogurt based ice cream',
+      image: 'https://easyrecipes.tv/wp-content/uploads/2023/11/Yogurt-ice-cream-recipe-FroYo-SC1_100019EN.jpg',
+      price: 'JD 3.75',
+      features: ['Healthy Yogurt', 'Probiotics', 'Light & Creamy']
+    },
+    {
+      id: 'ice-cream-passion-fruit',
+      name: 'Ice Cream - Passion Fruit',
+      nameArabic: 'آيس كريم - فاكهة العاطفة',
+      description: 'Exotic passion fruit ice cream',
+      image: 'https://www.sidechef.com/recipe/5133fecd-f4cc-4bd2-b6a2-6863f56bddc6.jpg?d=1408x1120',
+      price: 'JD 4.25',
+      features: ['Exotic Passion Fruit', 'Tropical', 'Unique Flavor']
+    },
+    {
+      id: 'ice-cream-dragon-fruit',
+      name: 'Ice Cream - Dragon Fruit',
+      nameArabic: 'آيس كريم - فاكهة التنين',
+      description: 'Unique dragon fruit flavored ice cream',
+      image: 'https://images.squarespace-cdn.com/content/v1/56ed128307eaa0e20bf6a67b/1470863167202-YA7C61MQVEQWEMZ9IMR8/dragon+fruit+raspberry+coconut++ice+cream',
+      price: 'JD 4.50',
+      features: ['Dragon Fruit', 'Exotic Taste', 'Natural Color']
+    },
+    {
+      id: 'ice-cream-honey',
+      name: 'Ice Cream - Honey',
+      nameArabic: 'آيس كريم - عسل',
+      description: 'Natural honey flavored ice cream',
+      image: 'https://images.ctfassets.net/6eymjp4akvqs/5UyiLRst1zZsR0SAqE4yEX/fd2d0555feeb09f94aa3a609264b365d/Honey_Ice_Cream.webp',
+      price: 'JD 4.00',
+      features: ['Pure Honey', 'Natural Sweetener', 'Healthy Choice']
+    },
+    {
+      id: 'natural-ice-cream-variety',
+      name: 'Natural Ice Cream',
+      nameArabic: 'آيس كريم طبيعي',
+      description: 'Premium natural ice cream with no artificial additives',
+      image: 'https://bsmedia.business-standard.com/_media/bs/img/article/2023-07/11/full/20230711175258.jpg',
+      price: 'JD 4.25',
+      features: ['All Natural', 'No Additives', 'Premium Quality']
+    },
+    {
+      id: 'ice-cream-toffee',
+      name: 'Ice Cream - Toffee',
+      nameArabic: 'آيس كريم - توفي',
+      description: 'Rich toffee flavored ice cream',
+      image: 'https://cupcakesandcouscous.com/wp-content/uploads/2017/03/d1311-salted2bcaramel2bice2bcream2b72bof2b7.jpg',
+      price: 'JD 4.00',
+      features: ['Rich Toffee', 'Caramel Notes', 'Indulgent']
+    },
+    {
+      id: 'ice-cream-mochaccino',
+      name: 'Ice Cream - Mochaccino',
+      nameArabic: 'آيس كريم - موكاتشينو',
+      description: 'Coffee and chocolate blend ice cream',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8QE6LdoTTWLoitO1DejuwM-30vQ2CMbaxSQ&s',
+      price: 'JD 4.25',
+      features: ['Coffee & Chocolate', 'Perfect Blend', 'Rich Flavor']
+    },
+    {
+      id: 'ice-cream-mint',
+      name: 'Ice Cream - Mint',
+      nameArabic: 'آيس كريم - نعناع',
+      description: 'Refreshing mint flavored ice cream',
+      image: 'https://www.thespruceeats.com/thmb/kACdn8Fk6qzXXme-xKeSocvfvZw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MintIceCreamHERO-color-corrected-df1d9b72aaeb41d38502f435fe99f65d.jpg',
+      price: 'JD 3.50',
+      features: ['Fresh Mint', 'Cooling Effect', 'Refreshing']
+    },
+    {
+      id: 'ice-cream-blue-bubbles',
+      name: 'Ice Cream - Blue Bubbles',
+      nameArabic: 'آيس كريم - فقاعات زرقاء',
+      description: 'Fun blue colored ice cream with bubble candy',
+      image: 'https://thegirlinspired.com/wp-content/uploads/2020/07/Bubble-Gum-Ice-Cream-22-scaled.jpg',
+      price: 'JD 4.00',
+      features: ['Blue Color', 'Bubble Candy', 'Fun & Colorful']
+    },
+    {
+      id: 'ice-cream-orange',
+      name: 'Ice Cream - Orange',
+      nameArabic: 'آيس كريم - برتقال',
+      description: 'Citrusy orange flavored ice cream',
+      image: 'https://tastesbetterfromscratch.com/wp-content/uploads/2020/07/Orange-Ice-Cream-5.jpg',
+      price: 'JD 3.50',
+      features: ['Citrus Orange', 'Vitamin C', 'Refreshing']
+    },
+
+    // BASE ICE CREAM PRODUCTS (for commercial/wholesale)
+    {
+      id: 'base-ice-cream-50',
+      name: 'Base Ice Cream 50',
+      nameArabic: 'قاعدة آيس كريم 50',
+      description: '50-unit base ice cream for commercial use',
+      image: 'https://www.mec3.com/Media/prodottigelato-basi/fiordilatte/base_006.jpg',
+      price: 'Contact for pricing',
+      features: ['Commercial Grade', 'Bulk Quantity', 'Professional Use']
+    },
+    {
+      id: 'base-ice-cream-100',
+      name: 'Base Ice Cream 100',
+      nameArabic: 'قاعدة آيس كريم 100',
+      description: '100-unit base ice cream for large operations',
+      image: 'https://gelq-1fb55.kxcdn.com/554-large_default/rubicone-base-100-dairycream.jpg',
+      price: 'Contact for pricing',
+      features: ['Large Scale', 'Industrial Grade', 'Bulk Operations']
+    },
+    {
+      id: 'fruit-base-ice-cream-250',
+      name: 'Fruit Base Ice Cream 250',
+      nameArabic: 'قاعدة آيس كريم فواكه 250',
+      description: '250-unit fruit base ice cream for commercial production',
+      image: 'https://gelq-1fb55.kxcdn.com/2659-large_default/leagel-base-fruit-50-ice-cream-master-school.jpg',
+      price: 'Contact for pricing',
+      features: ['Fruit Base', 'Large Quantity', 'Commercial Production']
+    },
+    {
+      id: 'base-ice-cream-10',
+      name: 'Base Ice Cream 10',
+      nameArabic: 'قاعدة آيس كريم 10',
+      description: '10-unit base ice cream for small businesses',
+      image: 'https://www.planetglace.com/client/cache/rubrique/600_600____1__base-1-003-copia_35352_36233.jpg',
+      price: 'Contact for pricing',
+      features: ['Small Business', 'Starter Pack', 'Quality Base']
+    }
+  ]
+},
+baseGelato: {
+  id: 'base-gelato',
+  title: "Base Gelato",
+  subtitle: "Professional Foundation",
+  description: "Premium gelato bases for commercial production, providing the perfect foundation for authentic Italian gelato.",
+  mainImage: "https://www.mec3.com/Media/prodottigelato-basi/kit_base_gelato_perfettp.png",
+  badge: "Professional",
+  color: "#D4A574",
+  products: [
+    {
+      id: 'milk-base-50',
+      name: 'Milk Base 50',
+      nameArabic: 'قاعدة حليب 50',
+      description: '50-unit milk base for creamy gelato production',
+      image: img8,
+      price: 'Contact for pricing',
+      features: ['Milk Base', 'Commercial Grade', '50 Unit Pack']
+    },
+    {
+      id: 'base-milkshake',
+      name: 'Base Milkshake',
+      nameArabic: 'قاعدة ميلك شيك',
+      description: 'Specialized milkshake base for smooth gelato texture',
+      image: img9,
+      price: 'Contact for pricing',
+      features: ['Milkshake Base', 'Smooth Texture', 'Professional Quality']
+    },
+    {
+      id: 'base-fruit',
+      name: 'Base Fruit',
+      nameArabic: 'قاعدة فواكه',
+      description: 'Fruit base for natural and vibrant fruit gelato flavors',
+      image: 'https://www.pernigottigelatieri.com/Media/Prodotti/base_fruit_50_f.jpg',
+      price: 'Contact for pricing',
+      features: ['Fruit Base', 'Natural Flavors', 'Vibrant Colors']
+    },
+    {
+      id: 'base-coffee',
+      name: 'Base Coffee',
+      nameArabic: 'قاعدة قهوة',
+      description: 'Coffee base for rich and aromatic coffee gelato',
+      image: img7,
+      price: 'Contact for pricing',
+      features: ['Coffee Base', 'Rich Aroma', 'Authentic Taste']
+    },
+ 
+  
+  ]
+},
 
 iceDrinks: {
   id: 'ice-drinks',
@@ -878,7 +1118,7 @@ iceDrinks: {
         name: 'Pistachio Paste',
         nameArabic: 'عجينة البستاشيو',
         description: 'Premium pistachio paste for desserts and pastries',
-        image: 'https://whattocooktoday.com/wp-content/uploads/2024/03/homemade-pistachio-paste-2-1.jpg',
+        image: img5,
         price: 'JD 8.50',
         features: ['100% Natural', 'Premium Quality', 'Versatile Use']
       },
@@ -896,7 +1136,7 @@ iceDrinks: {
         name: 'Chocolate Paste',
         nameArabic: 'عجينه الشكولاته',
         description: 'Rich chocolate paste for various applications',
-        image: 'https://www.tulipchocolate.com/hubfs/How%20to%20Make%20a%20Simple%20Homemade%20Chocolate%20Paste.png',
+        image: img11,
         price: 'JD 6.50',
         features: ['Rich Chocolate', 'Smooth Consistency', 'Professional Grade']
       },
@@ -905,7 +1145,7 @@ iceDrinks: {
         name: 'Chantilly Cream',
         nameArabic: 'كريمه شانتيه',
         description: 'Light and airy whipped cream',
-        image: 'https://www.thespruceeats.com/thmb/eiAgf-bp_xO6j6olZ0Ez60AgxEA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-vanilla-chantilly-cream-recipe-1375640-step-02-01-2c0bd7c366a24cdf8c42f35f528de833.jpg',
+        image: img10,
         price: 'JD 5.00',
         features: ['Light & Airy', 'Perfect Texture', 'Versatile']
       },

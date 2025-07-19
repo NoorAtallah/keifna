@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Target, Users, Award, Globe, Factory, Heart } from 'lucide-react';
-
+import { ArrowUpRight, Target, Users, Award, Globe, Factory, Heart, Calendar, Building } from 'lucide-react';
+import { Link } from 'react-router-dom';
 const KifnaAboutSection = () => {
   const [hoveredStat, setHoveredStat] = useState(null);
 
   const stats = [
     {
       id: 1,
-      number: "2020",
+      number: "2005",
       label: "Established",
-      icon: Factory,
-      description: "Years of heritage and tradition"
+      icon: Calendar,
+      description: "Nearly 20 years of excellence"
     },
     {
       id: 2,
       number: "100+",
       label: "Products",
       icon: Award,
-      description: "Premium quality offerings"
+      description: "Ready-made mixes & beverages"
     },
     {
       id: 3,
-      number: "50+",
-      label: "Partners",
-      icon: Users,
-      description: "Trusted business relationships"
+      number: "6+",
+      label: "Countries",
+      icon: Globe,
+      description: "Global distribution network"
     },
     {
       id: 4,
@@ -38,32 +38,49 @@ const KifnaAboutSection = () => {
   const values = [
     {
       id: 1,
-      title: "Quality Excellence",
-      description: "We maintain the highest standards in every product we create, ensuring consistent quality that exceeds expectations.",
+      title: "Excellence",
+      description: "In every blend and every flavor, we maintain the highest standards to deliver exceptional products.",
       icon: Award,
       color: "#DA2917"
     },
     {
       id: 2,
-      title: "Jordanian Heritage",
-      description: "Proudly rooted in Jordan, we celebrate our cultural heritage while embracing modern innovation.",
-      icon: Heart,
+      title: "Continuous Innovation",
+      description: "To meet the dynamic needs of the market, we constantly evolve our products and technologies.",
+      icon: Target,
       color: "#27001F"
     },
     {
       id: 3,
-      title: "Innovation Focus",
-      description: "Continuously evolving our processes and products to meet the changing needs of our customers.",
-      icon: Target,
+      title: "Reliability",
+      description: "Building long-term partnerships with our customers and agents through consistent quality and support.",
+      icon: Users,
       color: "#F2B2A8"
     },
     {
       id: 4,
-      title: "Global Standards",
-      description: "Meeting international quality standards while maintaining competitive pricing for our valued customers.",
-      icon: Globe,
+      title: "Sustainability",
+      description: "Adopting production practices that respect the environment and prioritize consumer health.",
+      icon: Heart,
       color: "#DA2917"
     }
+  ];
+
+  const productLines = [
+    "Ready-made cake mixes – just add water",
+    "Premium crepe and waffle mixes with perfectly balanced texture and taste",
+    "Hot chocolate drinks and milk coffee blends",
+    "Soft serve ice cream powder and gelato bases with professional-grade flavors",
+    "Specialized products for the HoReCa sector (hotels, restaurants, cafes)"
+  ];
+
+  const countries = [
+    "United States of America",
+    "Saudi Arabia", 
+    "Iraq",
+    "Palestine",
+    "Egypt",
+    "Kuwait"
   ];
 
   return (
@@ -84,7 +101,7 @@ const KifnaAboutSection = () => {
                   letterSpacing: '0.2em'
                 }}
               >
-                About Kifna
+                About Us
               </span>
               
               <h2 
@@ -94,23 +111,25 @@ const KifnaAboutSection = () => {
                   fontFamily: 'Georgia, serif'
                 }}
               >
-                Jordanian Excellence in Food Manufacturing
+                Crafting Flavor & Quality Since 2005
               </h2>
               
               <div className="space-y-6 text-lg leading-relaxed" style={{ color: '#F2B2A8' }}>
                 <p>
-                  Kifna Company stands as one of Jordan's proudly distinguished food manufacturing companies, 
-                  specializing in the production of ready-made dough, premium ice cream, and traditional hot beverages.
+                  At Keifna Food Industries, we craft a story of flavor and quality that began with our founding in 2005. 
+                  Driven by a passion for creating innovative food products, we strive to deliver offerings that cater to 
+                  the tastes of both Arab and international consumers.
                 </p>
                 
                 <p>
-                  Our commitment to excellence drives us to maintain international standards and competitive pricing, 
-                  ensuring that quality remains our foremost priority in every product we create.
+                  Based in Jordan, our vision is clear: to be a leading manufacturer of ready-made mixes and creative 
+                  beverages that make delicious experiences simple and accessible.
                 </p>
                 
                 <p>
-                  Through our methodical approach and continuous pursuit of innovation, we aspire to become 
-                  one of the strongest Jordanian companies in the food manufacturing industry.
+                  For over 20 years, we have been refining our blends and flavors in collaboration with international 
+                  experts in food additives and manufacturing technologies, delivering integrated solutions that meet 
+                  evolving market needs.
                 </p>
               </div>
             </div>
@@ -211,6 +230,153 @@ const KifnaAboutSection = () => {
           </div>
         </div>
 
+        {/* Product Lines Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h3 
+              className="text-3xl md:text-4xl font-light mb-6"
+              style={{ 
+                color: '#FFF6E4',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              Our Product Lines
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {productLines.map((product, index) => (
+              <div
+                key={index}
+                className="group p-6 transition-all duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: 'rgba(255, 246, 228, 0.05)',
+                  border: '1px solid rgba(255, 246, 228, 0.1)',
+                  backdropFilter: 'blur(10px)'
+                }}
+              >
+                <div className="flex items-start space-x-4">
+                  <div 
+                    className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                    style={{ backgroundColor: '#DA2917' }}
+                  />
+                  <p 
+                    className="text-base leading-relaxed"
+                    style={{ color: '#F2B2A8' }}
+                  >
+                    {product}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Global Presence Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h3 
+              className="text-3xl md:text-4xl font-light mb-6"
+              style={{ 
+                color: '#FFF6E4',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              Our Agents Worldwide
+            </h3>
+            <p 
+              className="text-lg max-w-3xl mx-auto mb-8"
+              style={{ color: '#F2B2A8', opacity: 0.9 }}
+            >
+              We are proud of our extensive network of official agents and distributors representing Keifna in various countries. 
+              We believe our agents are partners in success, and we continuously provide them with technical and marketing support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {countries.map((country, index) => (
+              <div
+                key={index}
+                className="group text-center p-4 transition-all duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: 'rgba(255, 246, 228, 0.05)',
+                  border: '1px solid rgba(255, 246, 228, 0.1)',
+                  backdropFilter: 'blur(10px)'
+                }}
+              >
+                <div className="mb-3 flex justify-center">
+                  <Globe size={24} style={{ color: '#DA2917' }} />
+                </div>
+                <p 
+                  className="text-sm font-medium"
+                  style={{ color: '#F2B2A8' }}
+                >
+                  {country}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Vision & Mission Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div 
+            className="p-8 lg:p-12"
+            style={{ 
+              backgroundColor: 'rgba(255, 246, 228, 0.05)',
+              border: '1px solid rgba(255, 246, 228, 0.1)'
+            }}
+          >
+            <div className="mb-6">
+              <Target size={32} style={{ color: '#DA2917' }} />
+            </div>
+            <h4 
+              className="text-2xl font-light mb-4"
+              style={{ 
+                color: '#FFF6E4',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              Our Vision
+            </h4>
+            <p 
+              className="text-base leading-relaxed"
+              style={{ color: '#F2B2A8', opacity: 0.9 }}
+            >
+              To become the preferred manufacturer for food and beverage providers across the Middle East by 
+              committing to quality and innovation.
+            </p>
+          </div>
+
+          <div 
+            className="p-8 lg:p-12"
+            style={{ 
+              backgroundColor: 'rgba(255, 246, 228, 0.05)',
+              border: '1px solid rgba(255, 246, 228, 0.1)'
+            }}
+          >
+            <div className="mb-6">
+              <Building size={32} style={{ color: '#DA2917' }} />
+            </div>
+            <h4 
+              className="text-2xl font-light mb-4"
+              style={{ 
+                color: '#FFF6E4',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              Our Mission
+            </h4>
+            <p 
+              className="text-base leading-relaxed"
+              style={{ color: '#F2B2A8', opacity: 0.9 }}
+            >
+              To deliver expertly crafted products that save time and effort while preserving authentic taste 
+              and industrial-grade quality.
+            </p>
+          </div>
+        </div>
+
         {/* Values Section */}
         <div className="border-t pt-20" style={{ borderColor: 'rgba(255, 246, 228, 0.1)' }}>
           <div className="text-center mb-16">
@@ -221,7 +387,7 @@ const KifnaAboutSection = () => {
                 fontFamily: 'Georgia, serif'
               }}
             >
-              Our Core Values
+              Our Values
             </h3>
             <p 
               className="text-lg max-w-2xl mx-auto"
@@ -304,12 +470,13 @@ const KifnaAboutSection = () => {
             className="text-lg mb-8 max-w-2xl mx-auto"
             style={{ color: '#F2B2A8', opacity: 0.9 }}
           >
-            Discover how Kifna Company can bring quality and innovation to your business with our premium food products.
+            Discover how Keifna Food Industries can bring quality and innovation to your business with our premium food products.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to='./contact'>
             <button
-              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105"
+              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
               style={{ 
                 color: '#27001F',
                 backgroundColor: '#FFF6E4',
@@ -319,9 +486,10 @@ const KifnaAboutSection = () => {
               <span className="relative z-10 mr-3">Contact Us</span>
               <ArrowUpRight size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
-
+</Link>
+            <Link to='./products'> 
             <button
-              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105"
+              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
               style={{ 
                 color: '#FFF6E4',
                 backgroundColor: 'transparent',
@@ -337,6 +505,7 @@ const KifnaAboutSection = () => {
               <span className="relative z-10 mr-3">View Products</span>
               <ArrowUpRight size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
+            </Link>
           </div>
         </div>
       </div>

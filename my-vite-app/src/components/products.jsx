@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Add this import
-import { ArrowUpRight, Star, Award, Zap, Coffee, IceCream, ChefHat, Droplets, Flame } from 'lucide-react';
+import { ArrowUpRight, Star, Award, Zap, Coffee, IceCream, ChefHat, Droplets, Flame, Factory } from 'lucide-react';
 import { productsData } from '../data/productsData'; // Import the data
 
 const KifnaProductsSection = () => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const navigate = useNavigate(); // Initialize navigation
 
-  // Convert the data structure to array format for the grid
+  // Convert the data structure to array format for the grid - SHOWING ONLY 4 MAIN PRODUCTS
   const products = [
     {
       id: 1,
@@ -23,18 +23,6 @@ const KifnaProductsSection = () => {
     },
     {
       id: 2,
-      title: "Karak Tea",
-      subtitle: "Heritage Blend",
-      description: "Authentic Jordanian Karak tea with rich spices and traditional brewing methods for the perfect cup.",
-      image: productsData.karakTea.mainImage,
-      icon: Coffee,
-      features: ["Traditional Spices", "Rich Flavor", "Authentic Recipe"],
-      badge: "Traditional",
-      color: "#DDB892",
-      route: "/products/karak-tea"
-    },
-    {
-      id: 3,
       title: "Ice Cream",
       subtitle: "Luxury Series",
       description: "Creamy perfection made with the finest ingredients, delivering an unforgettable taste experience.",
@@ -46,52 +34,28 @@ const KifnaProductsSection = () => {
       route: "/products/ice-cream"
     },
     {
-      id: 4,
-      title: "Ice Drinks",
-      subtitle: "Refreshing Choice",
-      description: "Cool and refreshing beverages perfect for any occasion, made with quality ingredients.",
-      image: productsData.iceDrinks.mainImage,
-      icon: Droplets,
-      features: ["Refreshing", "Quality Ingredients", "Perfect Temperature"],
-      badge: "Cool",
-      color: "#87CEEB",
-      route: "/products/ice-drinks"
-    },
-    {
-      id: 5,
-      title: "Hot Drinks",
-      subtitle: "Warming Collection",
-      description: "Comforting hot beverages that warm the soul, crafted with premium ingredients and traditional methods.",
-      image: productsData.hotDrinks.mainImage,
-      icon: Flame,
-      features: ["Premium Blend", "Warming", "Rich Aroma"],
-      badge: "Comfort",
-      color: "#CD853F",
-      route: "/products/hot-drinks"
-    },
-    {
-      id: 6,
-      title: "Coffee",
-      subtitle: "Premium Roast",
-      description: "From traditional Arabic coffee to modern blends, discover authentic flavors and rich heritage.",
-      image: productsData.coffee.mainImage,
+      id: 3,
+      title: "Karak Tea",
+      subtitle: "Heritage Blend",
+      description: "Authentic Jordanian Karak tea with rich spices and traditional brewing methods for the perfect cup.",
+      image: productsData.karakTea.mainImage,
       icon: Coffee,
-      features: ["Premium Beans", "Expert Roasting", "Rich Flavor"],
-      badge: "Premium",
-      color: "#8B4513",
-      route: "/products/coffee"
+      features: ["Traditional Spices", "Rich Flavor", "Authentic Recipe"],
+      badge: "Traditional",
+      color: "#DDB892",
+      route: "/products/karak-tea"
     },
     {
-      id: 7,
-      title: "Paste",
-      subtitle: "Culinary Base",
-      description: "High-quality paste products for culinary excellence, ensuring consistency and exceptional taste.",
-      image: productsData.paste.mainImage,
-      icon: Award,
-      features: ["High Quality", "Consistent Taste", "Versatile Use"],
-      badge: "Essential",
-      color: "#B8860B",
-      route: "/products/paste"
+      id: 4,
+      title: "Base Gelato",
+      subtitle: "Professional Foundation",
+      description: "Premium gelato bases for commercial production, providing the perfect foundation for authentic Italian gelato.",
+      image: "https://www.mec3.com/Media/prodottigelato-basi/fiordilatte/base_006.jpg",
+      icon: Factory,
+      features: ["Commercial Grade", "Professional Quality", "Authentic Italian"],
+      badge: "Professional",
+      color: "#D4A574",
+      route: "/products/base-gelato"
     }
   ];
 
@@ -142,8 +106,8 @@ const KifnaProductsSection = () => {
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        {/* Products Grid - 2x2 Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
           {products.map((product, index) => (
             <div
               key={product.id}
@@ -160,7 +124,7 @@ const KifnaProductsSection = () => {
               }}
             >
               {/* Product Image */}
-              <div className="relative h-48 sm:h-64 lg:h-72 overflow-hidden">
+              <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[28rem] overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -183,9 +147,9 @@ const KifnaProductsSection = () => {
                 />
 
                 {/* Product Badge */}
-                <div className="absolute top-3 sm:top-4 lg:top-6 left-3 sm:left-4 lg:left-6">
+                <div className="absolute top-4 sm:top-6 lg:top-8 left-4 sm:left-6 lg:left-8">
                   <span 
-                    className="inline-block text-xs font-bold uppercase tracking-wider px-2 py-1 sm:px-3 sm:py-2 rounded-full"
+                    className="inline-block text-sm font-bold uppercase tracking-wider px-3 py-2 sm:px-4 sm:py-3 rounded-full"
                     style={{ 
                       backgroundColor: '#DA2917',
                       color: '#FFF6E4'
@@ -196,9 +160,9 @@ const KifnaProductsSection = () => {
                 </div>
 
                 {/* Product Icon */}
-                <div className="absolute top-3 sm:top-4 lg:top-6 right-3 sm:right-4 lg:right-6">
+                <div className="absolute top-4 sm:top-6 lg:top-8 right-4 sm:right-6 lg:right-8">
                   <div 
-                    className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
                       hoveredProduct === product.id ? 'scale-110' : ''
                     }`}
                     style={{ 
@@ -207,7 +171,7 @@ const KifnaProductsSection = () => {
                       border: '1px solid rgba(255, 246, 228, 0.3)'
                     }}
                   >
-                    <product.icon size={16} className="sm:w-5 sm:h-5 lg:w-5 lg:h-5" style={{ color: '#FFF6E4' }} />
+                    <product.icon size={20} className="sm:w-6 sm:h-6 lg:w-7 lg:h-7" style={{ color: '#FFF6E4' }} />
                   </div>
                 </div>
 
@@ -218,7 +182,7 @@ const KifnaProductsSection = () => {
                   }`}
                 >
                   <button
-                    className="flex items-center space-x-2 sm:space-x-3 px-4 py-2 sm:px-6 sm:py-3 transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+                    className="flex items-center space-x-3 sm:space-x-4 px-6 py-3 sm:px-8 sm:py-4 transition-all duration-300 hover:scale-105 text-base sm:text-lg"
                     style={{ 
                       backgroundColor: 'rgba(255, 246, 228, 0.9)',
                       color: '#27001F',
@@ -230,23 +194,23 @@ const KifnaProductsSection = () => {
                     }}
                   >
                     <span className="font-medium">Learn More</span>
-                    <ArrowUpRight size={14} className="sm:w-4 sm:h-4" />
+                    <ArrowUpRight size={18} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
 
               {/* Product Content */}
-              <div className="p-4 sm:p-6 lg:p-8">
-                <div className="mb-4 sm:mb-6">
+              <div className="p-6 sm:p-8 lg:p-10 xl:p-12">
+                <div className="mb-6 sm:mb-8">
                   <p 
-                    className="text-xs sm:text-sm font-medium tracking-wider uppercase mb-2 sm:mb-3"
+                    className="text-sm sm:text-base font-medium tracking-wider uppercase mb-3 sm:mb-4"
                     style={{ color: '#DA2917' }}
                   >
                     {product.subtitle}
                   </p>
                   
                   <h3 
-                    className="text-lg sm:text-xl lg:text-2xl font-light mb-3 sm:mb-4 leading-tight"
+                    className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light mb-4 sm:mb-6 leading-tight"
                     style={{ 
                       color: '#27001F',
                       fontFamily: 'Georgia, serif'
@@ -256,7 +220,7 @@ const KifnaProductsSection = () => {
                   </h3>
                   
                   <p 
-                    className="text-sm sm:text-base leading-relaxed mb-4 sm:mb-6"
+                    className="text-base sm:text-lg leading-relaxed mb-6 sm:mb-8"
                     style={{ color: '#27001F', opacity: 0.8 }}
                   >
                     {product.description}
@@ -264,15 +228,15 @@ const KifnaProductsSection = () => {
                 </div>
 
                 {/* Product Features */}
-                <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
                   {product.features.map((feature, i) => (
-                    <div key={i} className="flex items-center space-x-2 sm:space-x-3">
+                    <div key={i} className="flex items-center space-x-3 sm:space-x-4">
                       <div 
-                        className="w-1 h-1 rounded-full"
+                        className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: '#DA2917' }}
                       />
                       <span 
-                        className="text-xs sm:text-sm"
+                        className="text-sm sm:text-base"
                         style={{ color: '#27001F', opacity: 0.7 }}
                       >
                         {feature}
@@ -284,7 +248,7 @@ const KifnaProductsSection = () => {
                 {/* Product Action */}
                 <div className="flex items-center justify-between">
                   <button
-                    className="group flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium transition-all duration-300"
+                    className="group flex items-center space-x-2 sm:space-x-3 text-sm sm:text-base font-medium transition-all duration-300"
                     style={{ color: '#DA2917' }}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -292,15 +256,15 @@ const KifnaProductsSection = () => {
                     }}
                   >
                     <span>Explore Product</span>
-                    <ArrowUpRight size={12} className="sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUpRight size={16} className="sm:w-4 sm:h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </button>
 
-                  <div className="flex items-center space-x-0.5 sm:space-x-1">
+                  <div className="flex items-center space-x-1 sm:space-x-1.5">
                     {[...Array(5)].map((_, i) => (
                       <Star 
                         key={i} 
-                        size={12} 
-                        className="sm:w-3.5 sm:h-3.5"
+                        size={16} 
+                        className="sm:w-4 sm:h-4"
                         fill="#DA2917" 
                         style={{ color: '#DA2917' }}
                       />
@@ -315,7 +279,7 @@ const KifnaProductsSection = () => {
         {/* Section Footer */}
         <div className="text-center mt-12 sm:mt-16 lg:mt-20">
           <button
-            className="group inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105"
+            className="group inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105 cursor-pointer"
             style={{ 
               color: '#FFF6E4',
               backgroundColor: '#27001F',

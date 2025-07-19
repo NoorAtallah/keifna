@@ -11,7 +11,7 @@ const ContactPage = () => {
       title: "Call Us",
       primary: "+962799500148",
       secondary: "+962799500148",
-      description: "Saturday - Thursday, 8AM - 6PM",
+      description: "Sunday - Thursday, 8AM - 6PM",
       action: "Call Now",
       color: "#DA2917",
       link: "tel:962799500148"
@@ -31,8 +31,8 @@ const ContactPage = () => {
       id: 3,
       icon: MapPin,
       title: "Visit Us",
-      primary: "Zarqa Industrial Zone",
-      secondary: "Zarqa, Jordan",
+      primary: "المقابلين - الحسنية",
+      secondary: "بجانب مسجد خالد بن الوليد",
       description: "Factory & Office Location",
       action: "Get Directions",
       color: "#DA2917",
@@ -53,7 +53,7 @@ const ContactPage = () => {
       id: 5,
       icon: Facebook,
       title: "Facebook",
-      primary: "Kifna Company",
+      primary: "Keifna Food Industries",
       secondary: "Join our community",
       description: "News, updates & customer stories",
       action: "Like Page",
@@ -76,7 +76,7 @@ const ContactPage = () => {
     {
       icon: Building,
       title: "Modern Facilities",
-      description: "State-of-the-art manufacturing in Zarqa Industrial Zone"
+      description: "State-of-the-art manufacturing facility"
     },
     {
       icon: Globe,
@@ -99,7 +99,7 @@ const ContactPage = () => {
                 letterSpacing: '0.2em'
               }}
             >
-              Contact Kifna Company
+              Contact Keifna Food Industries
             </span>
           </div>
           
@@ -297,7 +297,7 @@ const ContactPage = () => {
                 fontFamily: 'Georgia, serif'
               }}
             >
-              Why Partner with Kifna?
+              Why Partner with Keifna?
             </h2>
             <p 
               className="text-lg max-w-2xl mx-auto"
@@ -436,7 +436,7 @@ const ContactPage = () => {
             className="text-xl mb-10 max-w-2xl mx-auto"
             style={{ color: '#F2B2A8', opacity: 0.9 }}
           >
-            Join the growing family of businesses that trust Kifna Company for their premium food manufacturing needs. Let's create something amazing together.
+            Join the growing family of businesses that trust Keifna Food Industries for their premium food manufacturing needs. Let's create something amazing together.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

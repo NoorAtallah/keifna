@@ -15,7 +15,8 @@ const KifnaNavbar = () => {
     { name: "Ice Drinks", path: "/products/ice-drinks" },
     { name: "Hot Drinks", path: "/products/hot-drinks" },
     { name: "Coffee", path: "/products/coffee" },
-    { name: "Paste", path: "/products/paste" }
+    { name: "Paste", path: "/products/paste" },
+    { name: "Base Gelato", path: "/products/base-gelato" }
   ];
 
   return (
@@ -24,35 +25,15 @@ const KifnaNavbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <Link to="/" className="flex items-center space-x-3">
-            {/* Logo Image */}
-            {!logoError && (
-              <img 
-                src={img} 
-                alt="Kifna Company Logo" 
-                className="w-12 h-12  object-contain border-2 transition-transform duration-200 hover:scale-105"
-              
-                onError={() => setLogoError(true)}
-              />
-            )}
+     
+         
             
-            {/* Fallback Logo */}
-            {logoError && (
-              <div 
-                className="w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold border-2 transition-transform duration-200 hover:scale-105"
-                style={{ 
-                  backgroundColor: '#FFF6E4', 
-                  color: '#27001F',
-                  borderColor: '#DA2917'
-                }}
-              >
-                K
-              </div>
-            )}
+          
             
             {/* Company Name */}
             <div>
               <h1 className="text-xl font-bold transition-colors duration-200" style={{ color: '#FFF6E4' }}>
-                Kifna Company
+                keifna for food INDUSTRIES
               </h1>
               <p className="text-xs" style={{ color: '#F2B2A8' }}>
                 Premium Food Manufacturing

@@ -10,22 +10,23 @@ const KifnaHeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
+  // Ice cream slide moved to first position
   const slides = [
     {
       id: 1,
-      image: img,
-      title: "Premium Ready-Made Dough",
-      subtitle: "Crafted with Excellence",
-      description: "Experience the finest ready-made dough crafted with international standards and competitive prices.",
-      cta: "Discover More"
-    },
-    {
-      id: 2,
       image: img2,
       title: "Artisan Ice Cream",
       subtitle: "Pure Indulgence",
       description: "Indulge in our premium ice cream made with the finest ingredients and traditional recipes.",
       cta: "Explore Flavors"
+    },
+    {
+      id: 2,
+      image: img,
+      title: "Premium Ready-Made Dough",
+      subtitle: "Crafted with Excellence",
+      description: "Experience the finest ready-made dough crafted with international standards and competitive prices.",
+      cta: "Discover More"
     },
     {
       id: 3,
@@ -102,7 +103,7 @@ const KifnaHeroSlider = () => {
                   index === currentSlide ? 'scale-110' : 'scale-100'
                 }`}
                 style={{
-                  filter: 'brightness(0.65) contrast(1.05)',
+                  filter: 'brightness(0.4) contrast(1.1)',
                 }}
                 onError={(e) => {
                   e.target.style.display = 'none';
@@ -110,15 +111,15 @@ const KifnaHeroSlider = () => {
                 }}
               />
               
-              {/* Softer Gradient Overlay */}
-              {/* <div 
+              {/* Dark overlay for better text readability */}
+              <div 
                 className="absolute inset-0"
                 style={{ 
                   background: `
-                    linear-gradient(135deg, rgba(39, 0, 31, 0.6) 0%, rgba(39, 0, 31, 0.3) 50%, rgba(218, 41, 23, 0.4) 100%)
+                    linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(39, 0, 31, 0.7) 100%)
                   `
                 }}
-              /> */}
+              />
             </div>
 
             {/* Content */}
@@ -134,11 +135,12 @@ const KifnaHeroSlider = () => {
                     {/* Subtitle */}
                     <div className="mb-4 sm:mb-6">
                       <span 
-                        className="inline-block text-xs sm:text-sm font-medium tracking-widest uppercase px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm"
+                        className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase px-3 py-1.5 sm:px-4 sm:py-2 rounded-sm"
                         style={{ 
-                          color: '#FFF6E4',
+                          color: '#FFFFFF',
                           backgroundColor: 'rgba(218, 41, 23, 0.9)',
-                          letterSpacing: '0.2em'
+                          letterSpacing: '0.2em',
+                          textShadow: '0 1px 3px rgba(0,0,0,0.8)'
                         }}
                       >
                         {slide.subtitle}
@@ -147,10 +149,11 @@ const KifnaHeroSlider = () => {
                     
                     {/* Title */}
                     <h1 
-                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 sm:mb-8 leading-tight"
+                      className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-tight"
                       style={{ 
-                        color: '#FFF6E4',
-                        fontFamily: 'Georgia, serif'
+                        color: '#FFFFFF',
+                        fontFamily: 'Georgia, serif',
+                        textShadow: '0 2px 8px rgba(0,0,0,0.8)'
                       }}
                     >
                       {slide.title}
@@ -158,27 +161,31 @@ const KifnaHeroSlider = () => {
                     
                     {/* Description */}
                     <p 
-                      className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed max-w-xl"
-                      style={{ color: '#F2B2A8' }}
+                      className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed max-w-xl font-medium"
+                      style={{ 
+                        color: '#FFFFFF',
+                        textShadow: '0 1px 4px rgba(0,0,0,0.8)'
+                      }}
                     >
                       {slide.description}
                     </p>
                     
                     {/* CTA Button */}
                     <button
-                      className="group relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium transition-all duration-300 overflow-hidden"
+                      className="group relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold transition-all duration-300 overflow-hidden"
                       style={{ 
                         color: '#27001F',
-                        backgroundColor: '#FFF6E4',
-                        border: '1px solid #FFF6E4'
+                        backgroundColor: '#FFFFFF',
+                        border: '2px solid #FFFFFF',
+                        textShadow: 'none'
                       }}
                       onMouseEnter={(e) => {
-                        e.target.style.color = '#FFF6E4';
+                        e.target.style.color = '#FFFFFF';
                         e.target.style.backgroundColor = 'transparent';
                       }}
                       onMouseLeave={(e) => {
                         e.target.style.color = '#27001F';
-                        e.target.style.backgroundColor = '#FFF6E4';
+                        e.target.style.backgroundColor = '#FFFFFF';
                       }}
                     >
                       <span className="relative z-10">{slide.cta}</span>
@@ -217,7 +224,13 @@ const KifnaHeroSlider = () => {
             
             {/* Slide Counter */}
             <div className="flex items-center space-x-4">
-              <span className="text-xs sm:text-sm font-light" style={{ color: '#F2B2A8' }}>
+              <span 
+                className="text-xs sm:text-sm font-bold" 
+                style={{ 
+                  color: '#FFFFFF',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.8)'
+                }}
+              >
                 {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
               </span>
             </div>
@@ -235,8 +248,8 @@ const KifnaHeroSlider = () => {
                       index === currentSlide ? 'w-8 sm:w-12' : 'w-4 sm:w-6 hover:w-6 sm:hover:w-8'
                     }`}
                     style={{ 
-                      backgroundColor: index === currentSlide ? '#DA2917' : '#FFF6E4',
-                      opacity: index === currentSlide ? 1 : 0.4
+                      backgroundColor: index === currentSlide ? '#DA2917' : '#FFFFFF',
+                      opacity: index === currentSlide ? 1 : 0.6
                     }}
                   />
                 </button>
@@ -248,25 +261,34 @@ const KifnaHeroSlider = () => {
               <button
                 onClick={prevSlide}
                 className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
-                style={{ color: '#FFF6E4' }}
+                style={{ 
+                  color: '#FFFFFF',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.8)'
+                }}
               >
-                <ChevronLeft size={18} className="sm:w-5 sm:h-5" strokeWidth={1} />
+                <ChevronLeft size={18} className="sm:w-5 sm:h-5" strokeWidth={2} />
               </button>
               
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
                 className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
-                style={{ color: '#FFF6E4' }}
+                style={{ 
+                  color: '#FFFFFF',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.8)'
+                }}
               >
-                {isPlaying ? <Pause size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={1} /> : <Play size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={1} />}
+                {isPlaying ? <Pause size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={2} /> : <Play size={16} className="sm:w-[18px] sm:h-[18px]" strokeWidth={2} />}
               </button>
               
               <button
                 onClick={nextSlide}
                 className="p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
-                style={{ color: '#FFF6E4' }}
+                style={{ 
+                  color: '#FFFFFF',
+                  textShadow: '0 1px 3px rgba(0,0,0,0.8)'
+                }}
               >
-                <ChevronRight size={18} className="sm:w-5 sm:h-5" strokeWidth={1} />
+                <ChevronRight size={18} className="sm:w-5 sm:h-5" strokeWidth={2} />
               </button>
             </div>
           </div>
@@ -274,7 +296,7 @@ const KifnaHeroSlider = () => {
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ backgroundColor: 'rgba(255, 246, 228, 0.1)' }}>
+      <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}>
         <div 
           className="h-full transition-all duration-300"
           style={{ 
@@ -297,8 +319,8 @@ const KifnaHeroSlider = () => {
                 index === currentSlide ? 'scale-y-125' : 'hover:scale-y-110'
               }`}
               style={{ 
-                backgroundColor: index === currentSlide ? '#DA2917' : '#FFF6E4',
-                opacity: index === currentSlide ? 1 : 0.3
+                backgroundColor: index === currentSlide ? '#DA2917' : '#FFFFFF',
+                opacity: index === currentSlide ? 1 : 0.6
               }}
             />
             {index === currentSlide && (
@@ -317,13 +339,19 @@ const KifnaHeroSlider = () => {
           <div 
             className="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold"
             style={{ 
-              backgroundColor: '#FFF6E4', 
+              backgroundColor: '#FFFFFF', 
               color: '#27001F'
             }}
           >
             K
           </div>
-          <span className="text-xs sm:text-sm font-light" style={{ color: '#FFF6E4' }}>
+          <span 
+            className="text-xs sm:text-sm font-bold" 
+            style={{ 
+              color: '#FFFFFF',
+              textShadow: '0 1px 3px rgba(0,0,0,0.8)'
+            }}
+          >
             Kifna Company
           </span>
         </div>

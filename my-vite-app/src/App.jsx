@@ -11,9 +11,12 @@ import HotDrinksPage from './pages/hotDrinks'
 import CoffeePage from './pages/coffePage'
 import PastePage from './pages/pastePage'
 import ContactPage from './pages/cnotactUs'
+import BaseGelatoPage from './pages/baseGelato'
+import ScrollToTop from './components/scrolltoTop'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Navbar />
         <main>
@@ -27,6 +30,7 @@ function App() {
             <Route path="/products/hot-drinks" element={<HotDrinksPage />} />
             <Route path="/products/coffee" element={<CoffeePage />} />
             <Route path="/products/paste" element={<PastePage />} />
+            <Route path="/products/base-gelato" element={<BaseGelatoPage />} />
             {/* Add more routes as needed */}
             <Route path="/contact" element={<ContactPage />} />
            

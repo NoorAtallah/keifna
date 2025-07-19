@@ -11,7 +11,7 @@ const KifnaContactSection = () => {
       title: "Call Us",
       primary: "+962799500148",
       secondary: "+962799500148",
-      description: "Saterday - Thursday, 8AM - 6PM",
+      description: "Sunday - Thursday, 8AM - 6PM",
       action: "Call Now",
       color: "#DA2917",
       link: "tel:962799500148"
@@ -25,24 +25,24 @@ const KifnaContactSection = () => {
       description: "We'll respond within 24 hours",
       action: "Send Email",
       color: "#F2B2A8",
-      link: "mailto:info@kifna.com"
+      link: "mailto:info@keifna.com"
     },
     {
       id: 3,
       icon: MapPin,
       title: "Visit Us",
-      primary: "Zarqa Industrial Zone",
-      secondary: "Zarqa, Jordan",
+      primary: "المقابلين - الحسنية",
+      secondary: "بجانب مسجد خالد بن الوليد",
       description: "Factory & Office Location",
       action: "Get Directions",
       color: "#DA2917",
-      link: "https://maps.google.com"
+      link: "https://maps.app.goo.gl/aJbZqayutyMBFE4g7"
     },
     {
       id: 4,
       icon: Instagram,
       title: "Instagram",
-      primary: "@kifnacompany",
+      primary: "@keifna.coffee",
       secondary: "Follow our journey",
       description: "Daily updates & behind the scenes",
       action: "Follow Us",
@@ -53,7 +53,7 @@ const KifnaContactSection = () => {
       id: 5,
       icon: Facebook,
       title: "Facebook",
-      primary: "Kifna Company",
+      primary: "Keifna Food Industries",
       secondary: "Join our community",
       description: "News, updates & customer stories",
       action: "Like Page",
@@ -95,7 +95,7 @@ const KifnaContactSection = () => {
             className="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
             style={{ color: '#27001F', opacity: 0.8 }}
           >
-            Ready to experience the finest in Jordanian food manufacturing? Reach out to us through any of the channels below and discover how Kifna can serve your business needs.
+            Ready to experience the finest in Jordanian food manufacturing? Reach out to us through any of the channels below and discover how Keifna can serve your business needs.
           </p>
         </div>
 
@@ -270,7 +270,7 @@ const KifnaContactSection = () => {
             className="text-lg mb-8 max-w-2xl mx-auto"
             style={{ color: '#27001F', opacity: 0.8 }}
           >
-            Join the growing family of businesses that trust Kifna Company for their premium food manufacturing needs.
+            Join the growing family of businesses that trust Keifna Food Industries for their premium food manufacturing needs.
           </p>
 
  
