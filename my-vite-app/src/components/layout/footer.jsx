@@ -38,12 +38,12 @@ const KifnaFooter = () => {
                   >
                     keifna for food INDUSTRIES
                   </h3>
-                  <p 
+                  {/* <p 
                     className="text-base tracking-wide"
                     style={{ color: '#DA2917', opacity: 0.9 }}
                   >
                     Premium Food Excellence Since 2020
-                  </p>
+                  </p> */}
                 </div>
                 
                 <p 
@@ -188,7 +188,7 @@ const KifnaFooter = () => {
               className="text-sm"
               style={{ color: '#F2B2A8', opacity: 0.7 }}
             >
-              © {new Date().getFullYear()} Kifna Company. Proudly made in Jordan.
+              © {new Date().getFullYear()} Keifna Company. Proudly made in Jordan.
             </p>
 
             {/* Legal Links */}
