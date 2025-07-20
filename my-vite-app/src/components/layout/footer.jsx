@@ -9,7 +9,8 @@ const KifnaFooter = () => {
     { name: "Ice Drinks", path: "/products/ice-drinks" },
     { name: "Hot Drinks", path: "/products/hot-drinks" },
     { name: "Coffee", path: "/products/coffee" },
-    { name: "Paste", path: "/products/paste" }
+    { name: "Paste", path: "/products/paste" },
+    { name: "Base Gelato", path: "/products/base-gelato" }
   ];
 
   const socialLinks = [

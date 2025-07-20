@@ -391,14 +391,14 @@ const GenericCategoryPage = ({ categoryKey, categoryIcon }) => {
                 </p>
                 
                 {/* Price */}
-                <div className="mb-6">
+                {/* <div className="mb-6">
                   <span 
                     className="text-2xl font-bold"
                     style={{ color: '#DA2917' }}
                   >
                     {selectedProduct.price}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Preparation Instructions */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import img from '../assets/3.jpeg'; 
 import img2 from '../assets/7.jpeg';
 import img3 from '../assets/6.jpeg';
@@ -9,6 +10,7 @@ import img5 from '../assets/5.jpeg';
 const KifnaHeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const navigate = useNavigate();
 
   // Ice cream slide moved to first position
   const slides = [
@@ -18,7 +20,8 @@ const KifnaHeroSlider = () => {
       title: "Artisan Ice Cream",
       subtitle: "Pure Indulgence",
       description: "Indulge in our premium ice cream made with the finest ingredients and traditional recipes.",
-      cta: "Explore Flavors"
+      cta: "Explore Flavors",
+      link: "/products/ice-cream"
     },
     {
       id: 2,
@@ -26,7 +29,8 @@ const KifnaHeroSlider = () => {
       title: "Premium Ready-Made Dough",
       subtitle: "Crafted with Excellence",
       description: "Experience the finest ready-made dough crafted with international standards and competitive prices.",
-      cta: "Discover More"
+      cta: "Discover More",
+      link: "/products/pastry"
     },
     {
       id: 3,
@@ -34,7 +38,8 @@ const KifnaHeroSlider = () => {
       title: "Professional Ice Cream Base",
       subtitle: "Commercial Excellence",
       description: "High-quality ice cream base designed for businesses seeking consistency and excellence.",
-      cta: "Learn More"
+      cta: "Learn More",
+      link: "/products/base-gelato"
     },
     {
       id: 4,
@@ -42,7 +47,8 @@ const KifnaHeroSlider = () => {
       title: "Premium Coffee Collection",
       subtitle: "Rich & Aromatic",
       description: "Discover our exquisite range of premium coffee and traditional hot beverages.",
-      cta: "Shop Collection"
+      cta: "Shop Collection",
+      link: "/products/coffee"
     },
     {
       id: 5,
@@ -50,7 +56,8 @@ const KifnaHeroSlider = () => {
       title: "Kifna Company",
       subtitle: "Jordanian Heritage",
       description: "Leading food manufacturing with innovation, quality, and international standards.",
-      cta: "Our Story"
+      cta: "Our Story",
+      link: "/contact"
     }
   ];
 
@@ -73,6 +80,10 @@ const KifnaHeroSlider = () => {
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
+  };
+
+  const handleCTAClick = (link) => {
+    navigate(link);
   };
 
   return (
@@ -112,14 +123,14 @@ const KifnaHeroSlider = () => {
               />
               
               {/* Dark overlay for better text readability */}
-              <div 
+              {/* <div 
                 className="absolute inset-0"
                 style={{ 
                   background: `
                     linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(39, 0, 31, 0.7) 100%)
                   `
                 }}
-              />
+              /> */}
             </div>
 
             {/* Content */}
@@ -172,7 +183,8 @@ const KifnaHeroSlider = () => {
                     
                     {/* CTA Button */}
                     <button
-                      className="group relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold transition-all duration-300 overflow-hidden"
+                      onClick={() => handleCTAClick(slide.link)}
+                      className="group relative inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold transition-all duration-300 overflow-hidden cursor-pointer"
                       style={{ 
                         color: '#27001F',
                         backgroundColor: '#FFFFFF',

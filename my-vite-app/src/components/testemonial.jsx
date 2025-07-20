@@ -134,25 +134,7 @@ const KifnaAboutSection = () => {
               </div>
             </div>
 
-            <button
-              className="group inline-flex items-center px-8 py-4 text-base font-medium transition-all duration-300 hover:scale-105"
-              style={{ 
-                color: '#27001F',
-                backgroundColor: '#FFF6E4',
-                border: '1px solid #FFF6E4'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#FFF6E4';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = '#FFF6E4';
-                e.target.style.color = '#27001F';
-              }}
-            >
-              <span className="relative z-10 mr-3">Learn Our Story</span>
-              <ArrowUpRight size={18} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </button>
+      
           </div>
 
           {/* Right Content - Stats */}

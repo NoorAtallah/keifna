@@ -36,7 +36,7 @@ const ContactPage = () => {
       description: "Factory & Office Location",
       action: "Get Directions",
       color: "#DA2917",
-      link: "https://maps.google.com"
+      link: "https://maps.app.goo.gl/aJbZqayutyMBFE4g7"
     },
     {
       id: 4,
