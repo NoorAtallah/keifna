@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import img from '../../assets/logo.png'
+import img from '../../assets/1.png'
 
 const KifnaNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,10 +25,15 @@ const KifnaNavbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <Link to="/" className="flex items-center space-x-3">
-     
-         
-            
-          
+            {/* Logo Image */}
+            {!logoError && (
+              <img 
+                src={img} 
+                alt="Keifna Logo" 
+                className="h-25 w-25 object-contain"
+                onError={() => setLogoError(true)}
+              />
+            )}
             
             {/* Company Name */}
             <div>

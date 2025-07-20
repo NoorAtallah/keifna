@@ -53,7 +53,7 @@ const KifnaHeroSlider = () => {
     {
       id: 5,
       image: img5,
-      title: "Kifna Company",
+      title: "keifna for food INDUSTRIES",
       subtitle: "Jordanian Heritage",
       description: "Leading food manufacturing with innovation, quality, and international standards.",
       cta: "Our Story",

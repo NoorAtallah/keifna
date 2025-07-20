@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ExternalLink } from 'lucide-react';
 import img from '../assets/7.jpeg'
+import img2 from '../assets/5.jpeg'
 const KifnaGallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [hoveredImage, setHoveredImage] = useState(null);
@@ -36,7 +37,7 @@ const KifnaGallerySection = () => {
     },
     {
       id: 5,
-      src: "https://keifna.com/wp-content/uploads/2023/09/93426596_1054839424894694_2693954542051000320_n-600x600.jpg",
+      src: img2,
       title: "Our Facility",
       category: "Manufacturing",
       description: "State-of-the-art production facility"
