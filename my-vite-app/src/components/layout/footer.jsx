@@ -36,7 +36,7 @@ const KifnaFooter = () => {
                       fontFamily: 'Georgia, serif'
                     }}
                   >
-                    Kifna Company
+                    keifna for food INDUSTRIES
                   </h3>
                   <p 
                     className="text-base tracking-wide"
