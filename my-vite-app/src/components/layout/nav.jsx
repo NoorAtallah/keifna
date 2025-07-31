@@ -40,9 +40,7 @@ const KifnaNavbar = () => {
               <h1 className="text-xl font-bold transition-colors duration-200" style={{ color: '#FFF6E4' }}>
                 keifna for food INDUSTRIES
               </h1>
-              <p className="text-xs" style={{ color: '#F2B2A8' }}>
-                Premium Food Manufacturing
-              </p>
+             
             </div>
           </Link>
 
