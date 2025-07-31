@@ -13,6 +13,7 @@ import PastePage from './pages/pastePage'
 import ContactPage from './pages/cnotactUs'
 import BaseGelatoPage from './pages/baseGelato'
 import ScrollToTop from './components/scrolltoTop'
+import WhatsAppFloatingButton from './components/whatsAppButton'
 function App() {
   return (
     <Router>
@@ -35,6 +36,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
            
           </Routes>
+          <WhatsAppFloatingButton />
         </main>
         <Footer />
       </div>
