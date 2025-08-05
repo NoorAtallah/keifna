@@ -94,7 +94,39 @@ const KifnaNavbar = () => {
                 </div>
               )}
             </div>
-
+   <Link 
+              to="/about" 
+              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-20"
+              style={{ 
+                color: '#FFF6E4'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+            >
+              About Us
+            </Link>
+             <Link 
+              to="/gallery" 
+              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-20"
+              style={{ 
+                color: '#FFF6E4'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+            >
+              Gallery
+            </Link>
+                    <Link 
+              to="/certificates" 
+              className="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-opacity-20"
+              style={{ 
+                color: '#FFF6E4'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#DA2917'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+            >
+              Certificate
+            </Link>
             <Link 
               to="/contact" 
               className="px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-2"
@@ -113,6 +145,7 @@ const KifnaNavbar = () => {
             >
               Contact Us
             </Link>
+           
           </div>
 
           {/* Mobile menu button */}

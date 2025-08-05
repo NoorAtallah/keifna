@@ -14,6 +14,9 @@ import ContactPage from './pages/cnotactUs'
 import BaseGelatoPage from './pages/baseGelato'
 import ScrollToTop from './components/scrolltoTop'
 import WhatsAppFloatingButton from './components/whatsAppButton'
+import KifnaAboutSection from './pages/aboutUs'
+import KifnaGalleryPage from './pages/gallery'
+import KifnaCertificatePage from './pages/certifecate'
 function App() {
   return (
     <Router>
@@ -34,6 +37,9 @@ function App() {
             <Route path="/products/base-gelato" element={<BaseGelatoPage />} />
             {/* Add more routes as needed */}
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<KifnaAboutSection />} />
+            <Route path="/gallery" element={<KifnaGalleryPage />} />
+            <Route path="/certificates" element={<KifnaCertificatePage />} />
            
           </Routes>
           <WhatsAppFloatingButton />
