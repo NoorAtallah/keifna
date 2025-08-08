@@ -204,6 +204,33 @@ const KifnaNavbar = () => {
               </div>
 
               <Link 
+                to="/about" 
+                className="block px-3 py-2 rounded-md text-base font-medium"
+                style={{ color: '#FFF6E4' }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </Link>
+
+              <Link 
+                to="/gallery" 
+                className="block px-3 py-2 rounded-md text-base font-medium"
+                style={{ color: '#FFF6E4' }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+
+              <Link 
+                to="/certificates" 
+                className="block px-3 py-2 rounded-md text-base font-medium"
+                style={{ color: '#FFF6E4' }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Certificate
+              </Link>
+
+              <Link 
                 to="/contact" 
                 className="block px-3 py-2 rounded-md text-base font-medium border-2 mt-2"
                 style={{ 
